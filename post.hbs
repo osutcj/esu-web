@@ -76,7 +76,7 @@ into the {body} of the default.hbs template --}}
               </div>
               {{content}}
               {{!-- List of tags  --}}
-              {{#if tags}}
+              {{!-- {{#if tags}}
                 <section class="m-tags in-post">
                   <h3 class="m-submenu-title">{{t "Tags"}}</h3>
                   <ul>
@@ -87,12 +87,12 @@ into the {body} of the default.hbs template --}}
                     {{/foreach}}
                   </ul>
                 </section>
-              {{/if}}
+              {{/if}} --}}
             </div>
           </div>
         </div>
         {{!-- Email subscribe form at the bottom of the page --}}
-        {{#if @site.members_enabled}}
+        {{!-- {{#if @site.members_enabled}}
           <section class="m-subscribe-section js-newsletter">
             <div class="l-wrapper in-post">
               <div class="m-subscribe-section__content">
@@ -108,8 +108,8 @@ into the {body} of the default.hbs template --}}
               </div>
             </div>
           </section>
-        {{/if}}
-        <section class="m-author">
+        {{/if}} --}}
+        {{!-- <section class="m-author">
           <div class="m-author__content">
             <div class="m-author__picture">
               <a href="{{primary_author.url}}" class="m-author-picture" aria-label="{{primary_author.name}}">
@@ -157,7 +157,7 @@ into the {body} of the default.hbs template --}}
               </ul>
             </div>
           </div>
-        </section>
+        </section> --}}
         {{!-- Native comments --}}
         {{#if comments}}
           <div class="m-comments">

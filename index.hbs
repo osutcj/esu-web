@@ -35,13 +35,13 @@ into the {body} of the default.hbs template --}}
       <a href="{{@custom.custom_cta_url}}" class="m-button filled">{{@custom.custom_cta_text}}</a>
     {{else}}
       {{#if @site.members_enabled}}
-        <a href="{{@site.url}}/newsletter" class="m-button filled js-newsletter">{{t "Subscribe"}}</a>
+        <a href="{{@site.url}}/newsletter" class="m-button filled js-newsletter">{{t "Join ESU 2023"}}</a>
       {{/if}}
     {{/if}}
   </div>
   </section>
   <div class="l-content">
-    <div class="l-wrapper" data-animate="fade-up">
+    {{!-- <div class="l-wrapper" data-animate="fade-up">
       <div class="l-grid centered">
         {{#get "posts" filter="featured:true" include="authors,tags" limit="5" as |featured|}}
           {{#if featured}}
@@ -86,7 +86,6 @@ into the {body} of the default.hbs template --}}
                           {{title}}
                         </h2>
                         <div class="m-featured-article__timestamp">
-                          <span>{{date published_at timeago="true"}}</span>
                           <span>&bull;</span>
                           <span>{{reading_time minute=(t "1 min read") minutes=(t "% min read")}}</span>
                         </div>
@@ -109,7 +108,7 @@ into the {body} of the default.hbs template --}}
       </div>
     </div>
     {{!-- Links to Previous/Next posts --}}
-    {{pagination}}
+    {{pagination}} --}}
   </div>
 </main>
 
