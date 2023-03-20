@@ -91,8 +91,13 @@
   right: 0;
   border-radius: 3px 0 0 3px;
 }
+
+.prev .next{
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
 .slideshow-container .prev:hover, .slideshow-container .next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 .dot {
   cursor: pointer;
@@ -167,7 +172,7 @@
 </div>
 
 <script>
-  let slideIndex = 1;
+let slideIndex = 1;
 showSlides(slideIndex);
 
 function plusSlides(n) {
