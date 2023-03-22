@@ -59,6 +59,12 @@
   opacity: 1;
   right: 0;
 }
+
+@media only screen and (max-width: 800px) {
+    .button{
+        width: 70%;
+    }
+}
 </style>
 
 <div class="container-carousel m-0 p-5 row">
@@ -76,7 +82,7 @@
     {{/if}}
 
     {{!-- Carousel --}}
-    <div class="col-md-6" style="margin: auto">
+    <div class="col-md-6" style="margin: auto; flex-direction: column; margin-bottom: 20px;">
         <p class="lead" style="margin-bottom: 20px;">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet delectus facilis, saepe consequatur corporis quo officiis sit harum. Repudiandae veniam magni non eligendi autem tempore praesentium in? Unde, assumenda quis?
         </p>
