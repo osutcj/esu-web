@@ -1,0 +1,107 @@
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald&family=Righteous&display=swap');
+
+.countdown-container {
+	outline-style: solid;
+    outline-color: white;
+	max-width: 900px;
+	margin: 0 auto;
+	padding: 30px;
+	border-radius: 5px;
+	box-shadow: 0 0 20px #fff;
+	text-align: center;
+}
+
+h1 {
+	font-size: 40px;
+	margin-bottom: 50px;
+    color: white;
+}
+
+span{
+  padding:10px;
+  color: white;
+}
+
+#countdown {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 50px;
+}
+
+#countdown > div {
+	outline-style: solid;
+    outline-color: white;
+    box-shadow: 0 0 20px #fff;
+	font-size: 50px;
+	width: 300px;
+	height: 100px;
+	margin: 0 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 5px;
+}
+
+.smalltext {
+	font-size: 16px;
+	font-weight: normal;
+	margin-top: 10px;
+    color: white;
+}
+
+</style>
+
+
+<div class="countdown-container">
+    <h1>Countdown ESU 2023</h1>
+    <div id="countdown">
+        <div>
+            <span id="days"></span>
+            <div class="smalltext">Zile</div>
+        </div>
+        <div>
+            <span id="hours"></span>
+            <div class="smalltext">Ore</div>
+        </div>
+        <div>
+            <span id="minutes"></span>
+            <div class="smalltext">Minute</div>
+        </div>
+        <div>
+            <span id="seconds"></span>
+            <div class="smalltext">Secunde</div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+var countDownDate = new Date("Apr 15, 2023 00:00:00").getTime();
+
+var x = setInterval(function() {
+
+	var now = new Date().getTime();
+
+	var distance = countDownDate - now;
+
+	var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+	var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+	var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+	var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+	document.getElementById("days").innerHTML = days;
+	document.getElementById("hours").innerHTML = hours;
+	document.getElementById("minutes").innerHTML = minutes;
+	document.getElementById("seconds").innerHTML = seconds;
+                                        
+	if (distance < 0) {
+		clearInterval(x);
+		document.getElementById("countdown").innerHTML = "¡Ya llegó el 15 de abril!";
+	}
+}); 
+
+</script>
