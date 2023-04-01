@@ -67,18 +67,17 @@ This header template is shared across all the pages.
           <div class="m-nav__right">
             <div class="m-footer-social" style="margin-bottom: 0;">
             {{#if @site.facebook}}
-              <a href="{{facebook_url @site.facebook}}" target="_blank" rel="noopener" aria-label="Facebook">
+              <a href="https://www.facebook.com/groups/1276139039069171" target="_blank" rel="noopener" aria-label="Facebook">
                 <span class="icon-facebook" aria-hidden="true"></span>
               </a>
             {{/if}}
-            <a href="{{@site.url}}/rss" aria-label="RSS">
+            <a href="https://www.instagram.com/engineering.summer.university/" target="_blank">
               <span class="icon-instagram" aria-hidden="true"></span>
             </a>
             </div>
-            <div class="signUp" >
-              <a href="#">
-              <button style="background-color: white; color: black; margin-bottom:5%; border:none; font-size: 14px; box-shadow:none; border-radius:8px; padding: 5px;" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                Inscrie-te    
+            <div class="signUp" style="padding-left:1rem" >
+              <button onclick="location.href='/inscriere'" style="background-color: white; color: black; margin-bottom:5%; border:none; font-size: 14px; box-shadow:none; border-radius:8px; padding: 5px;" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                Înscrie-te   
               </button>
               </a>
             </div>
