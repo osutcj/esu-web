@@ -26,8 +26,8 @@ into the {body} of the default.hbs template --}}
     {{!-- Inject styles of the hero image to make it responsive --}}
     {{> hero background=feature_image}}
     <div class="m-hero__content" data-aos="fade-down">
-      <h1 class="m-hero-title bigger">Despre ESU</h1>
-      <a href="{{@site.url}}#sign-up" class="m-button filled">Join ESU 2023</a>
+      <h1 class="m-hero-title bigger" style="padding-bottom: 1rem;">Despre ESU</h1>
+      <a href="{{@site.url}}/inscriere" class="m-button filled">Înscrie-te!</a>
       
       {{#if custom_excerpt}}
         <p class="m-hero-description">{{custom_excerpt}}</p>
