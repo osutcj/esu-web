@@ -65,6 +65,27 @@
         width: 70%;
     }
 }
+
+.lead{
+    font-size: xx-large;
+}
+
+
+#anunturi{
+    width: 80%;
+    margin: 0 auto;
+}
+@media only screen and (max-width: 800px) {
+    .lead{
+        font-size: large;
+    }
+    #anunturi{
+        width: 100%;
+        margin: 0 auto;
+    }
+
+}
+
 </style>
 
 <div class="container-carousel m-0 p-5 row">
@@ -81,16 +102,25 @@
     </h2>
     {{/if}}
 
+    <div class="col-md-1" style="margin: auto; flex-direction: column; margin-bottom: 10px; text-align:center;">
+        <p class="lead" style="margin-bottom: 20px;">
+          Înscrie-te acum la Engineering Summer University și fă primul pas spre viitorul tău în lumea tehnologiei!  
+        </p>
+    </div>
+    
+
     {{!-- Carousel --}}
     
     <div id="anunturi" class="carousel slide col-md-1" data-bs-ride="carousel">
 
         <!-- Indicators/dots -->
         <div class="carousel-indicators">
-            <button type="button" data-bs-target="#anunturi" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#anunturi" data-bs-slide-to="0"></button>
             <button type="button" data-bs-target="#anunturi" data-bs-slide-to="1"></button>
             <button type="button" data-bs-target="#anunturi" data-bs-slide-to="2"></button>
-            <button type="button" data-bs-target="#anunturi" data-bs-slide-to="3"></button>
+            <button type="button" data-bs-target="#anunturi" data-bs-slide-to="3"class="active"></button>
+            <button type="button" data-bs-target="#anunturi" data-bs-slide-to="4"></button>
+            <button type="button" data-bs-target="#anunturi" data-bs-slide-to="5"></button>
 
             {{!-- {{#for 0 10 2}} 
             <button type="button" data-bs-target="#anunturi" data-bs-slide-to="{{this}}"></button>
@@ -100,10 +130,13 @@
 
         <div class="carousel-inner">
             {{!-- .carousel-item.active*10>img[src="https://picsum.photos/id/$/1920/1080" class="w-100 h-50" alt="Imagine $"] --}}
-            <div class="carousel-item active"><img src="https://picsum.photos/id/1/1920/1080" alt="Imagine 1" class="w-100 h-50"></div>
-            <div class="carousel-item active"><img src="https://picsum.photos/id/2/1920/1080" alt="Imagine 2" class="w-100 h-50"></div>
-            <div class="carousel-item active"><img src="https://picsum.photos/id/3/1920/1080" alt="Imagine 3" class="w-100 h-50"></div>
-            <div class="carousel-item active"><img src="https://picsum.photos/id/3/1920/1080" alt="Imagine 3" class="w-100 h-50"></div>
+            <div class="carousel-item active"><img src="assets/images/Landing_page/1.jpg" alt="Imagine 1" class="w-100 h-50"></div>
+            <div class="carousel-item active"><img src="assets/images/Landing_page/2.jpg" alt="Imagine 2" class="w-100 h-50"></div>
+            <div class="carousel-item active"><img src="assets/images/Landing_page/3.jpg" alt="Imagine 3" class="w-100 h-50"></div>
+            <div class="carousel-item active"><img src="assets/images/Landing_page/4.jpg" alt="Imagine 3" class="w-100 h-50"></div>
+            <div class="carousel-item active"><img src="assets/images/Landing_page/5.jpg" alt="Imagine 2" class="w-100 h-50"></div>
+            <div class="carousel-item active"><img src="assets/images/Landing_page/6.jpg" alt="Imagine 2" class="w-100 h-50"></div>
+    
         </div>
 
         <!-- Left and right controls/icons -->
@@ -115,13 +148,10 @@
         </button>
     </div>
 
-    <div class="col-md-1" style="margin: auto; flex-direction: column; margin-bottom: 10px; text-align:center;">
-        <p class="lead" style="margin-bottom: 20px;">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet delectus facilis, saepe consequatur corporis quo officiis sit harum. Repudiandae veniam magni non eligendi autem tempore praesentium in? Unde, assumenda quis?
-        </p>
-        <a href="#">
+    <div class="col-md-1" style="margin: auto; flex-direction: column; margin-bottom: 10px; text-align:center; padding-top:2rem">
+        <a href="/inscriere">
             <button class="button" style = "margin-top: 10px;"> 
-                <span>ESU Gallery</span>
+                <span>Înscrie-te!</span>
             </button>
         </a>
     </div>

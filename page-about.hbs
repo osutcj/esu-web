@@ -19,15 +19,14 @@ into the {body} of the default.hbs template --}}
 {{#post}}
   {{> header background=feature_image}}
 {{/post}}
-
 <main class="main-wrap">
   {{!-- Everything inside the #post tags pulls data from the post --}}
   {{#post}}
     {{!-- Inject styles of the hero image to make it responsive --}}
     {{> hero background=feature_image}}
     <div class="m-hero__content" data-aos="fade-down">
-      <h1 class="m-hero-title bigger">Despre ESU</h1>
-      <a href="{{@site.url}}#sign-up" class="m-button filled">Join ESU 2023</a>
+      <h1 class="m-hero-title bigger" style="padding-bottom: 1rem;">Despre ESU</h1>
+      <a href="{{@site.url}}/inscriere" class="m-button filled">Înscrie-te!</a>
       
       {{#if custom_excerpt}}
         <p class="m-hero-description">{{custom_excerpt}}</p>
@@ -39,16 +38,13 @@ into the {body} of the default.hbs template --}}
         <div class="l-wrapper in-post" data-aos="fade-up" data-aos-delay="300">
           <div class="l-post-content">
             <div class="pos-relative js-post-content">
-              {{content}}
-              <h3>First subheading</h3>
+              <h3>ESU 2023</h3>
               <p class="lead">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione dolores cumque facilis inventore minus nam consectetur voluptates nulla provident, sequi aspernatur, quo labore. Corporis, labore maxime error fugiat esse perferendis!
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum possimus adipisci eum laborum nisi aliquid quae fuga maxime! Molestias tenetur corporis nihil doloremque! Perspiciatis earum sunt totam molestias impedit sed?
+                Dacă nu ai încă un plan pentru perioada <b>15-29 iulie</b>, ESU este cu siguranță alegerea potrivită! Fii actorul verii tale!
               </p>
-              <h3>Second subheading</h3>
+              <h3>Oportunitate</h3>
               <p class="lead">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione dolores cumque facilis inventore minus nam consectetur voluptates nulla provident, sequi aspernatur, quo labore. Corporis, labore maxime error fugiat esse perferendis!
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum possimus adipisci eum laborum nisi aliquid quae fuga maxime! Molestias tenetur corporis nihil doloremque! Perspiciatis earum sunt totam molestias impedit sed?
+                Tabăra de vară Engineering Summer University este oportunitatea perfectă pentru elevii de clasa a 11-a de a simula viața de student într-o universitate tehnică. Participanții vor avea parte de 2 săptămâni pline de aventură cu activități interactive și distractive, și în același timp de dezvoltare personală, prin participarea la cursuri susținute de cei mai buni profesori din cadrul Universității Tehnice din Cluj-Napoca. Programul divers și plin de oportunități noi se îmbină perfect cu experiența cazării în unul din căminele campusului studențesc Observator.
               </p>
             </div>
           </div>
@@ -56,10 +52,6 @@ into the {body} of the default.hbs template --}}
       </div>
     </article>
   {{/post}}
-
-<div class = "category-title platinum" style="text-align:center">
-  <h1 class = "title-sponsor">ESU 2022</h1><br>
-</div>
 
 <section id="tranding">      
       <div class="container">
