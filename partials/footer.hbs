@@ -3,29 +3,38 @@ This footer template is shared across all the pages.
 --}}
 
 <footer class="m-footer">
-  <div class="m-footer__content">
-    {{!-- {{#if @site.secondary_navigation}}
-      <nav class="m-footer__nav-secondary" role="navigation" aria-label="{{t "Secondary menu in footer"}}">
-        {{navigation type="secondary"}}
-      </nav>
-    {{/if}} --}}
-    <nav class="m-footer-social">
-      {{!-- 
-      TO DO: secondary navigation will be used for the dropdown menu
-      {{#if @site.facebook}}
-        <a href="{{facebook_url @site.facebook}}" target="_blank" rel="noopener" aria-label="Facebook">
-          <span class="icon-facebook" aria-hidden="true"></span>
-        </a>
-      {{/if}} 
-      --}}
-      <a href="https://www.instagram.com/engineering.summer.university/" target="_blank">
-        <span class="icon-instagram" aria-hidden="true"></span>
-      </a>
-    </nav>
+  <div class="m-footer__content" style="max-width:80%"> 
+
+    <div style="display: flex; justify-content:space-around">
+
+        <div>
+            <h2>Un proiect marca:</h2>
+            <img style="height:100px; witdh:279" src="/content/images/osut.png">
+        </div>
+        <div>
+            <h2>În parteneriat cu:</h2>
+            <img src="/content/images/utcn.png">
+        </div>
+        <div>
+            <h2>Contact:</h2>
+            <div style="text-align:left">
+              <p><b>Sabina Onut - Responsabil BC</b></p>
+              <p>Telfon:<i>07xx xxx xxx</i>  </p>
+              <p>Email: <a href="mailto:sabina.onut@gmail.com">sabina.onut@gmail.com</a></p>  
+              <p><b>Demean Vlad - Coordonator</b><p>
+              <p>Telfon:<i>07xx xxx xxx</i>  </p>
+              <p>Email: <a href="mailto:demean@gmail.com">vlad.demean@gmail.com</a></p>            
+            </div>
+        </div>
+
+    </div>
+
+<br>
+<br>
     <p class="m-footer-copyright">
       <span>{{@site.title}} &copy; {{date format="YYYY"}}</span>
       <span>&nbsp; &bull; &nbsp;</span>
-      <span>{{t "Made by Serviciul IT - OSUT"}} </span>
+      <span>Made with ❤️ by <a href="https://www.instagram.com/nnicolaee/">Serviciul IT</a> </span>
     </p>
   </div>
 </footer>
