@@ -1,0 +1,135 @@
+
+  .card {
+    background: #191c29;
+    width: 200px;
+    height: 300px;
+    position: relative;
+    border-radius: 6px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    cursor: pointer;
+    margin:3rem;
+  }
+
+  .img-1{
+    background: url('/content/images/echipa/sabina.jpg');
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: 10%;
+
+  }
+  .img-2{
+    background-image: url('/content/images/echipa/demean.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  .img-3{
+    background-image: url('/content/images/echipa/gesi.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  .img-4{
+    background-image: url('/content/images/echipa/szilard.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  .img-5{
+    background-image: url('/content/images/echipa/dumbo.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  .img-6{
+    background-image: url('/content/images/echipa/zeibel.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  .img-7{
+    background-image: url('/content/images/echipa/oprea.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  .img-8{
+    background-image: url('/content/images/echipa/barto.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+
+.card-container:hover{
+    transform: scale(1.05);
+    transition: 0.7s;
+  }
+  
+  
+  .card::before,
+  .card::after {
+    content: "";
+    width: 210px;
+    height: 310px;
+    border-radius: 8px;
+    background-image: linear-gradient(45deg, #5ddcff, #3c67e3, #4e00c2);
+    background-size:400%;
+    position: absolute;
+    z-index: -1;
+    top: -1%;
+    left: -2%;
+    transition:1s opacity linear;
+    animation: spin 5s linear infinite;
+    
+  }
+  .card::after{
+    filter:blur(20px);
+    opacity:.8;
+  }
+  
+  
+  @keyframes spin {
+    0% {
+      background-position:0 0;
+    }
+    50% {
+          background-position:200% 100%;
+    }
+   100% {
+         background-position:0 0;
+    }
+  }
+  
+  .container{
+    width: 200px;
+    height: 200px;
+    position: relative;
+    margin: 20px;
+}
+.box{
+    width: 100%;
+    height: 100%;            
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.8;  /* for demo purpose  */
+}
+.stack-top{
+    z-index: 9;
+    margin: 20px; /* for demo purpose  */
+}
+
+.glow {
+    font-size: 1.4em;
+    color: #a02790;
+    font-family: Source Sans Pro, Helvetica, Arial, sans-serif;
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;
+  }
+  p{
+    -webkit-text-stroke: 0.3px black;
+  }
+  @-webkit-keyframes glow {
+    from {
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+    }
+    to {
+      text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+    }
+  }

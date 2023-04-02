@@ -1,0 +1,88 @@
+{{!--
+This template is used for the posts that are marked as pages.
+--}}
+
+{{!-- This block preloads specific assets for the post page --}}
+{{#contentFor "preload"}}
+  <link rel="preload" href="{{asset "css/post.css"}}" as="style" />
+  <link rel="preload" href="{{asset "js/page.js"}}" as="script" />
+{{/contentFor}}
+
+{{!-- This block loads specific styles for the post page --}}
+{{#contentFor "styles"}}
+  <link rel="stylesheet" type="text/css" href="{{asset "css/post.css"}}" media="screen" />
+  <link rel="stylesheet" type="text/css" href="{{asset "css/glowing-card.css"}}" media="screen" />
+{{/contentFor}}
+
+{{!-- The tag below means: insert everything in this file
+into the {body} of the default.hbs template --}}
+{{!< default}}
+
+{{!-- Special header.hbs partial to generate the <header> tag --}}
+{{#post}}
+  {{> header background=feature_image}}
+{{/post}}
+
+<main class="main-wrap">
+  {{!-- Everything inside the #post tags pulls data from the post --}}
+  {{#post}}
+    {{!-- Inject styles of the hero image to make it responsive --}}
+    {{> hero background=feature_image}}
+    
+  {{/post}}
+
+
+
+<h1 class="m-hero-title bigger">Echipa de coordonare</h1>
+
+<div style="display:flex; justify-content:space-around">
+<div class="card-container" style="position: relative">
+    <div class="card img-1"></div>
+</div>
+
+
+<div style="position: relative">
+    <div class="card img-2"></div>
+   
+</div>
+</div>
+
+<div style="display:flex; justify-content:space-around">
+<div style="position: relative">
+    <div class="card img-3"></div>
+    
+</div>
+<div style="position: relative">
+    <div class="card img-4"></div>
+    
+</div>
+<div style="position: relative">
+    <div class="card img-5"></div>
+   
+</div>
+</div>
+
+<div style="display:flex; justify-content:space-evenly">
+<div style="position: relative">
+    <div class="card img-6"></div>
+    
+</div>
+<div style="position: relative">
+    <div class="card img-7"></div>
+    
+</div>
+<div style="position: relative">
+    <div class="card img-8"></div>
+    
+</div>
+</div>
+
+
+
+
+</main>
+
+{{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
+{{#contentFor "scripts"}}
+  <script defer src="{{asset "js/page.js"}}"></script>
+{{/contentFor}}
