@@ -58,52 +58,52 @@ into the {body} of the default.hbs template --}}
                 <b>j) Adeverință medicală</b> care atestă faptul că participantul este clinic sănătos.<br />
                 </p>
               </div>
-              <div>
-                <h1 style="text-align:center">Regulament</h1>
-                <div style="display: flex;align-items:center;justify-content:center">
-                    <button style="background-color: #FF8000;">
-                        <a href="https://esu.osut.org/content/files/2023/04/Regulament-ESU.pdf" target="_blank" style="color:white;font-size:30px;">Download <i class="fa fa-download"></i></a>
-                    </button>
-                </div>
-              </div>
-              <div style="padding-top: 2rem;">
-                  <iframe src="https://drive.google.com/file/d/1YZCXksJWrsGvvCPHWTDz4Y8CeWFA1BAM/preview" width="100%" height="700px"></iframe>
-              </div>
-              <div style="padding-top: 1rem;">
-                  <h1 style="text-align: center;">Formular GDPR</h1>
-                  <div style="display: flex;align-items:center;justify-content:center">
-                    <button style="background-color: #FF8000;">
-                        <a href="https://esu.osut.org/content/files/2023/04/Formular-GDPR-ESU-2023.pdf" target="_blank" style="color:white;font-size:30px;">Download <i class="fa fa-download"></i></a>
-                    </button>
+              <div style="text-align:center; padding-top: 3rem;">
+                  <div class="row">
+                    <div class="col-md-6 mobile">
+                      <h1>Regulament</h1>
+                    </div>
+                    <div class="col-md-6 mobile desktop">
+                      <button style="background-color: #FF8000;">
+                          <a href="https://esu.osut.org/content/files/2023/04/Regulament-ESU.pdf" target="_blank" style="color:white;font-size:30px;">Download <i class="fa fa-download"></i></a>
+                      </button>
+                    </div>
                   </div>
-                  <div style="padding-top: 2rem;">
-                    <iframe src="https://drive.google.com/file/d/1lINlF5DJH0aKRTGzlVF8hCOVZtuDCG4o/preview" width="100%" height="700px"></iframe> 
+                  <div class="row">
+                    <div class="col-md-6 mobile">
+                      <h1>Formular GDPR</h1>
+                    </div>
+                    <div class="col-md-6 mobile desktop">
+                      <button style="background-color: #FF8000;">
+                            <a href="https://esu.osut.org/content/files/2023/04/Formular-GDPR-ESU-2023.pdf" target="_blank" style="color:white;font-size:30px;">Download <i class="fa fa-download"></i></a>
+                      </button>
+                    </div>
                   </div>
-              </div>
-              <div style="padding-top: 1rem;">
-                  <h1 style="text-align: center;">Acord Parental</h1>
-                  <div style="display: flex;align-items:center;justify-content:center">
-                    <button style="background-color: #FF8000;">
-                        <a href="https://esu.osut.org/content/files/2023/04/Acord-Parental_ESU2023.pdf" target="_blank" style="color:white;font-size:30px;">Download <i class="fa fa-download"></i></a>
-                    </button>
+                  <div class="row">
+                    <div class="col-md-6 mobile">
+                      <h1>Acord Parental</h1>
+                    </div>
+                    <div class="col-md-6 mobile desktop">
+                      <button style="background-color: #FF8000;">
+                          <a href="https://esu.osut.org/content/files/2023/04/Acord-Parental_ESU2023.pdf" target="_blank" style="color:white;font-size:30px;">Download <i class="fa fa-download"></i></a>
+                      </button>
+                    </div>
                   </div>
-                  <div style="padding-top: 2rem;">
-                    <iframe src="https://drive.google.com/file/d/15h56TA9vSBFrBPAM2ZdnpZDGk35WPJMj/preview" width="100%" height="700px"></iframe> 
+                  <div class="row">
+                    <div class="col-md-6 mobile">
+                      <h1>Declarație pe propria răspundere</h1>
+                    </div>
+                    <div class="col-md-6 mobile desktop">
+                      <button style="background-color: #FF8000;">
+                          <a href="https://esu.osut.org/content/files/2023/04/Declara-ie-pe-propria-r-spundere_ESU2023.pdf" target="_blank" style="color:white;font-size:30px;">Download <i class="fa fa-download"></i></a>
+                      </button>
+                    </div>
                   </div>
-              </div>
-              <div style="padding-top: 1rem;">
-                  <h1 style="text-align: center;">Declarație pe propria răspundere</h1>
-                  <div style="display: flex;align-items:center;justify-content:center">
-                    <button style="background-color: #FF8000;">
-                        <a href="https://esu.osut.org/content/files/2023/04/Declara-ie-pe-propria-r-spundere_ESU2023.pdf" target="_blank" style="color:white;font-size:30px;">Download <i class="fa fa-download"></i></a>
-                    </button>
+                  <div class="row">
+                    <div class="col-md-6 mobile">
+                        <h1>Formular Înscriere</h1>
+                    </div>
                   </div>
-                  <div style="padding-top: 2rem;">
-                    <iframe src="https://drive.google.com/file/d/1k0Fup9mYaSjvpzSo6njKnTM8Krvpcmbl/preview" width="100%" height="700px"></iframe> 
-                  </div>
-              </div>
-              <div>
-                  <h1 style="text-align: center;">Formular Înscriere</h1>
               </div>
             </div>
           </div>
@@ -113,6 +113,21 @@ into the {body} of the default.hbs template --}}
   {{/post}}
 </main>
 
+<style>
+  .desktop{
+      padding-top: 2rem;
+    }
+  @media only screen and (max-width: 620px) {
+    .mobile{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .desktop{
+      padding-top: 0rem;
+    }
+}
+</style>
 {{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
 {{#contentFor "scripts"}}
   <script defer src="{{asset "js/home.js"}}"></script>
