@@ -6,12 +6,33 @@ This footer template is shared across all the pages.
   .m-footer{
     background-color: #161616;
   }
+
+  .footerFlexContainer{
+    display: flex; 
+    justify-content:space-around;
+  }
+
+  .contactText{
+    text-align: left;
+  }
+
+  @media screen and (max-width: 768px){
+    .footerFlexContainer{
+      flex-direction: column;
+    }
+
+    .contactText{
+      text-align: center;
+    }
+
+  }
+
 </style>
 
 <footer class="m-footer">
-  <div class="m-footer__content" style="max-width:80%"> 
+  <div class="m-footer__content" > 
 
-    <div style="display: flex; justify-content:space-around">
+    <div class="footerFlexContainer" >
 
         <div>
             <h2>Un proiect marca:</h2>
@@ -23,7 +44,7 @@ This footer template is shared across all the pages.
         </div>
         <div>
             <h2>Contact:</h2>
-            <div style="text-align:left">
+            <div class="contactText">
               <p><b>Sabina Onut - Responsabil BC</b></p>
               <p>Telfon:<i>0773 925 150</i>  </p>
               <p>Email: <a href="mailto:sabina.onut@gmail.com">sabina.onut@gmail.com</a></p>  

@@ -40,6 +40,10 @@
     color: hotpink;
   }
 
+  .addPading{
+    padding-bottom: 10px;
+  }
+
   /* selected link */
   .readMore:active {
     color: blue;
@@ -67,7 +71,6 @@
 <div class="wrapperCollapse">
   <button class="collapsible">Regulament</button>
   <div class="content">
-    <p class="contentText">
       <p style="font-weight: bold;">Capitolul I - Prevederi generale</p>
       <p>Art. 1.1 </p>
       <p>“Engineering Summer University” este un proiect creat și
@@ -78,11 +81,10 @@
       având funcția de președinte.</p>  
       <br />
       <a href="https://drive.google.com/file/d/1YZCXksJWrsGvvCPHWTDz4Y8CeWFA1BAM/preview" class="readMore">Read more...</a>
-    </p>
   </div>
   <button class="collapsible">Acte necesare pentru inscriere</button>
   <div class="content">
-    <p class="contentText">
+    <p class="contentText" style="padding-bottom: 10px;">
       <b>a) Formularul de înscriere</b> de la adresa www.esu.osut.org – completat online<br />
       <b>b) Adeverință din partea instituției de învățământ</b> care atestă calitatea de elev în clasa a XI-a a
       aplicantului<br />
@@ -122,8 +124,10 @@
       var content = this.nextElementSibling;
       if (content.style.maxHeight) {
         content.style.maxHeight = null;
+        content.style.padding = "0px";
       } else {
-        content.style.maxHeight = content.scrollHeight + "px";
+        content.style.maxHeight = content.scrollHeight + 20 + "px";
+        content.style.padding = "10px";
       }
     });
   }

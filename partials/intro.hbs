@@ -6,6 +6,7 @@
     .container-carousel {
         width: 100%;
     }
+
     h1.carousel-title {
         font-size: 2rem;
         text-align: center;
@@ -74,7 +75,7 @@
 
 
 #anunturi{
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
 }
 @media only screen and (max-width: 800px) {
@@ -87,10 +88,21 @@
     }
 
 }
+.carousel-inner{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+@media only screen and (max-width: 1200px) {
+   .carousel-inner{
+        height: auto;
+        display: block;
+    }
+}
 
 </style>
 
-<div class="container-carousel m-0 p-5 row">
+<div class="container-carousel m-0" style="max-height: 50%;">
 
     {{#if title}}
     <h1 class="carousel-title m-5">
@@ -104,44 +116,26 @@
     </h2>
     {{/if}}
 
-    <div class="col-md-1" style="margin: auto; flex-direction: column; margin-bottom: 10px; text-align:center;">
-        <p class="lead" style="margin-bottom: 20px;">
-          Înscrie-te acum la Engineering Summer University și fă primul pas spre viitorul tău în lumea tehnologiei!  
-        </p>
-    </div>
-    
-
-    {{!-- Carousel --}}
-    
-    <div id="anunturi" class="carousel slide col-md-1" data-bs-ride="carousel">
-
-        <!-- Indicators/dots -->
-        <div class="carousel-indicators">
+    <div id="anunturi" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators" style="display: none;">
             <button type="button" data-bs-target="#anunturi" data-bs-slide-to="0"></button>
             <button type="button" data-bs-target="#anunturi" data-bs-slide-to="1"></button>
             <button type="button" data-bs-target="#anunturi" data-bs-slide-to="2"></button>
             <button type="button" data-bs-target="#anunturi" data-bs-slide-to="3"class="active"></button>
             <button type="button" data-bs-target="#anunturi" data-bs-slide-to="4"></button>
             <button type="button" data-bs-target="#anunturi" data-bs-slide-to="5"></button>
-
-            {{!-- {{#for 0 10 2}} 
-            <button type="button" data-bs-target="#anunturi" data-bs-slide-to="{{this}}"></button>
-            {{/for}} --}}
-            {{!-- <button type="button" data-bs-target="#anunturi" data-bs-slide-to="4"></button> --}}
         </div>
 
         <div class="carousel-inner">
-            {{!-- .carousel-item.active*10>img[src="https://picsum.photos/id/$/1920/1080" class="w-100 h-50" alt="Imagine $"] --}}
             <div class="carousel-item active"><img src="assets/images/Landing_page/1.jpg" alt="Imagine 1" class="w-100 h-50"></div>
             <div class="carousel-item active"><img src="assets/images/Landing_page/2.jpg" alt="Imagine 2" class="w-100 h-50"></div>
             <div class="carousel-item active"><img src="assets/images/Landing_page/3.jpg" alt="Imagine 3" class="w-100 h-50"></div>
-            <div class="carousel-item active"><img src="assets/images/Landing_page/4.jpg" alt="Imagine 3" class="w-100 h-50"></div>
+            <div class="carousel-item active"><img src="assets/images/Landing_page/4_2.jpg" alt="Imagine 3" class="w-100 h-50"></div>
             <div class="carousel-item active"><img src="assets/images/Landing_page/5.jpg" alt="Imagine 2" class="w-100 h-50"></div>
             <div class="carousel-item active"><img src="assets/images/Landing_page/6.jpg" alt="Imagine 2" class="w-100 h-50"></div>
     
         </div>
 
-        <!-- Left and right controls/icons -->
         <button class="carousel-control-prev" type="button" data-bs-target="#anunturi" data-bs-slide="prev">
             <span class="carousel-control-prev-icon"></span>
         </button>
@@ -150,7 +144,12 @@
         </button>
     </div>
 
-    <div class="col-md-1" style="margin: auto; flex-direction: column; margin-bottom: 10px; text-align:center; padding-top:2rem">
+    <div style="margin: auto; flex-direction: column; margin: 20px; text-align:center;">
+        <p class="lead" style="margin-bottom: 20px;">
+          Înscrie-te acum la Engineering Summer University și fă primul pas spre viitorul tău în lumea tehnologiei!  
+        </p>
+    </div> 
+    <div style="margin: auto; flex-direction: column; margin-top: -10px; text-align:center; padding-top:2rem">
         <a href="/inscriere">
             <button class="button" style = "margin-top: 10px; background-color: #FF8000;"> 
                 <span>Înscrie-te!</span>
