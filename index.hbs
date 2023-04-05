@@ -19,27 +19,10 @@ into the {body} of the default.hbs template --}}
 {{!-- Special header.hbs partial to generate the <header> tag --}}
 {{> header background=@site.cover_image }}
 
-
 <main class="main-wrap">
-  {{!-- Inject styles of the hero image to make it responsive --}}
-  {{> hero background=@site.cover_image}}
-  <div class="m-hero__content" data-animate="fade-down">
-    <h1 class="m-hero-title bigger">{{@site.title}}</h1>
-    {{#if @site.description}}
-      <p class="m-hero-description bigger">{{@site.description}}</p>
-    {{/if}}
-    {{#if @custom.use_custom_cta}}
-      <a href="{{@custom.custom_cta_url}}" class="m-button filled">{{@custom.custom_cta_text}}</a>
-    {{else}}
-      {{#if @site.members_enabled}}
-        <a href="{{@site.url}}/newsletter" class="m-button filled js-newsletter">{{t "Join ESU 2023"}}</a>
-      {{/if}}
-    {{/if}}
-  </div>
-  </section>
   <div class="l-content">
-      {{> intro}}
-    <div class="l-wrapper" style="margin-bottom: 4%; margin-top:-4%">
+    {{> intro}}
+    <div class="l-wrapper" style="margin-bottom: 4%; margin-top:4%">
       <section class="bg-dark text-white py-5 ">
       <div class="container">
         <div class="row justify-content-center text-center" >
@@ -51,12 +34,12 @@ into the {body} of the default.hbs template --}}
         <div class="col-md-4" style = "margin-top: 3%; ">
           <span id="count2" class="display-4"></span>
           <br />
-          <span style="font-size: 150%;">Zile</span>
+          <span style="font-size: 150%;">Voluntari</span>
         </div>
         <div class="col-md-4" style = "margin-top: 3%;">
           <span id="count3" class="display-4"></span>
           <br />
-          <span style="font-size: 150%;">Amintiri</span>
+          <span style="font-size: 150%;">Zile</span>
         </div>
         </div>
       </div>
@@ -68,10 +51,10 @@ into the {body} of the default.hbs template --}}
 
     <div class="row" style="padding-right: 10%; padding-left: 10%; margin-top: 4rem; margin-bottom: 4rem;">
       <div class="col-md-4" style="display:flex; justify-content: center; align-items:center;"> 
-        <img style="object-fit: contain; max-width: 40%; margin: 0 auto;" src="assets/images/Ghid/partea1.png">
+        <img class="toBeDeletedMobile" style="object-fit: contain; max-width: 40%; margin: 0 auto;" src="assets/images/Ghid/partea1.png">
       </div>
       <div class="col-md-8" style="display:flex; justify-content: center; align-items:center;">
-        <img style="object-fit: contain; max-width: 70%; " src="assets/images/Ghid/partea2.png">
+        <img class="imgStyle" style="object-fit: contain;" src="assets/images/Ghid/partea2.png">
       </div>
     </div>
 
@@ -111,14 +94,32 @@ into the {body} of the default.hbs template --}}
       }
     }, step);
   }
-  counter("count1", 0, 120, 3000);
-  counter("count2", 0, 14, 2000);
-  counter("count3", 0, 1000, 5000);
+  counter("count1", 674, 800, 5000);
+  counter("count2", 223, 400, 5000);
+  counter("count3", 0, 14, 3000);
   });
 
 </script>
 
 
+<style>
+    .imgStyle{
+      max-width: 70%; 
+    }
+  @media only screen and (max-width: 768px) {
+    .toBeDeletedMobile{
+      display: none;
+    }
+
+    .col-md-8{
+      width: 100%;
+    }
+
+    .imgStyle{
+      max-width: 100%;
+    }
+  }
+</style>
 {{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
 {{#contentFor "scripts"}}
   <script defer src="{{asset "js/home.js"}}"></script>

@@ -40,6 +40,10 @@
     color: hotpink;
   }
 
+  .addPading{
+    padding-bottom: 10px;
+  }
+
   /* selected link */
   .readMore:active {
     color: blue;
@@ -67,7 +71,6 @@
 <div class="wrapperCollapse">
   <button class="collapsible">Regulament</button>
   <div class="content">
-    <p class="contentText">
       <p style="font-weight: bold;">Capitolul I - Prevederi generale</p>
       <p>Art. 1.1 </p>
       <p>“Engineering Summer University” este un proiect creat și
@@ -77,12 +80,11 @@
       – deschis la Banca Transilvania), reprezentată legal de către Covaci Sergiu,
       având funcția de președinte.</p>  
       <br />
-      <a href="https://drive.google.com/file/d/1YZCXksJWrsGvvCPHWTDz4Y8CeWFA1BAM/preview" class="readMore">Read more...</a>
-    </p>
+      <a href="https://drive.google.com/file/d/1YZCXksJWrsGvvCPHWTDz4Y8CeWFA1BAM/preview" class="readMore">Citește tot...</a>
   </div>
   <button class="collapsible">Acte necesare pentru inscriere</button>
   <div class="content">
-    <p class="contentText">
+    <p class="contentText" style="padding-bottom: 10px;">
       <b>a) Formularul de înscriere</b> de la adresa www.esu.osut.org – completat online<br />
       <b>b) Adeverință din partea instituției de învățământ</b> care atestă calitatea de elev în clasa a XI-a a
       aplicantului<br />
@@ -100,15 +102,13 @@
     </p>
   </div>
   <button class="collapsible">F.A.Q</button>
-  <div class="content">
+  <div class="content" style="width: 100%;">
     <p class="contentText">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-      magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-      consequat.
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit, optio? Modi pariatur at molestias iusto? A saepe
-      sequi eaque sint, necessitatibus possimus aperiam voluptate! Nisi et numquam dignissimos rem velit!
+      Unde? Când? Cine? 
       <br />
-      <a href="https://esu.osut.org/faq/" class="readMore">Read more...</a>
+      Campusul Studențesc Observator, perioada: 15-29 iulie și o mulțime de oameni blană.
+      <br />
+      <a href="https://esu.osut.org/faq/" class="readMore">Mai multe întrabari...</a>
     </p>
   </div>
 </div>
@@ -122,8 +122,10 @@
       var content = this.nextElementSibling;
       if (content.style.maxHeight) {
         content.style.maxHeight = null;
+        content.style.padding = "0px";
       } else {
-        content.style.maxHeight = content.scrollHeight + "px";
+        content.style.maxHeight = content.scrollHeight + 20 + "px";
+        content.style.padding = "10px";
       }
     });
   }
