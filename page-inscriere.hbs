@@ -61,7 +61,7 @@ into the {body} of the default.hbs template --}}
               <div style="text-align:center; padding-top: 3rem;">
                   <div class="row">
                     <div class="col-md-6 mobile">
-                      <a href="/regulament" style="text-decoration: underline;"><h1>Regulament</h1></a>
+                      <a href="/regulament" style="text-decoration: underline;"><h1 class="onHover">Regulament</h1></a>
                     </div>
                     <div class="col-md-6 mobile desktop">
                       <button style="background-color: #FF8000;">
@@ -71,7 +71,7 @@ into the {body} of the default.hbs template --}}
                   </div>
                   <div class="row">
                     <div class="col-md-6 mobile">
-                      <a href="/gdpr" style="text-decoration: underline;"><h1>Formular GDPR</h1></a>
+                      <a href="/gdpr" style="text-decoration: underline;"><h1 class="onHover">Formular GDPR</h1></a>
                     </div>
                     <div class="col-md-6 mobile desktop">
                       <button style="background-color: #FF8000;">
@@ -81,7 +81,7 @@ into the {body} of the default.hbs template --}}
                   </div>
                   <div class="row">
                     <div class="col-md-6 mobile">
-                      <a href="/acord-parental" style="text-decoration: underline;"><h1>Acord Parental</h1></a>
+                      <a href="/acord-parental" style="text-decoration: underline;"><h1 class="onHover">Acord Parental</h1></a>
                     </div>
                     <div class="col-md-6 mobile desktop">
                       <button style="background-color: #FF8000;">
@@ -91,7 +91,7 @@ into the {body} of the default.hbs template --}}
                   </div>
                   <div class="row">
                     <div class="col-md-6 mobile">
-                      <a href="/declaratie" style="text-decoration: underline;"><h1>Declarație pe propria răspundere</h1></a>
+                      <a href="/declaratie" style="text-decoration: underline;"><h1 class="onHover">Declarație pe propria răspundere</h1></a>
                     </div>
                     <div class="col-md-6 mobile desktop">
                       <button style="background-color: #FF8000;">
@@ -114,6 +114,12 @@ into the {body} of the default.hbs template --}}
 </main>
 
 <style>
+  h1.onHover:hover{
+    background-color: whitesmoke;
+    color: black;
+    text-decoration-color: black;
+    text-decoration: underline;
+  }
   .desktop{
       padding-top: 2rem;
     }
