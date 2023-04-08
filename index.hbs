@@ -19,6 +19,13 @@ into the {body} of the default.hbs template --}}
 {{!-- Special header.hbs partial to generate the <header> tag --}}
 {{> header background=@site.cover_image }}
 
+<style>
+  .textCounters{
+    font-weight: 600;
+    font-size: 1.5rem;
+  }
+</style>
+
 <main class="main-wrap">
   <div class="l-content">
     {{> intro}}
@@ -29,17 +36,17 @@ into the {body} of the default.hbs template --}}
         <div class="col-md-4" style = "margin-top: 3%;">
             <span id="count1" class="display-4" ></span><span class="display-4">+</span>
             <br />
-            <span style="font-size: 150%; ">Participanți</span>    
+            <span class="textCounters">Participanți</span>    
         </div>
         <div class="col-md-4" style = "margin-top: 3%; ">
           <span id="count2" class="display-4"></span><span class="display-4">+</span>
           <br />
-          <span style="font-size: 150%;">Voluntari</span>
+          <span class="textCounters">Voluntari</span>
         </div>
         <div class="col-md-4" style = "margin-top: 3%;">
           <span id="count3" class="display-4"></span>
           <br />
-          <span style="font-size: 150%;">Zile</span>
+          <span class="textCounters">Zile</span>
         </div>
         </div>
       </div>
