@@ -43,7 +43,7 @@ into the {body} of the default.hbs template --}}
              <div>
                 <h1 style="text-align: center;">Acte necesare</h1>
                 <p style="font-size: 16px;">
-                <b>a) Formularul de înscriere</b> de la adresa www.esu.osut.org – completat online<br />
+                <b>a) Formularul de înscriere</b> de la adresa www.esu.osut.org - completat online<br />
                 <b>b) Adeverință din partea instituției de învățământ</b> care atestă calitatea de elev în clasa a XI-a a
                 aplicantului<br />
                 <b>c) Regulamentul prezent semnat</b> de către reprezentantul legal al participantului pe fiecare pagină și
@@ -99,10 +99,11 @@ into the {body} of the default.hbs template --}}
                       </button>
                     </div>
                   </div>
-                  <div class="row">
-                    <div class="col-md-6 mobile">
-                        <h1>Formular Înscriere</h1>
-                    </div>
+                  <div class="align-items:center;">
+                    <h1 style="text-decoration: underline;">Formular Înscriere</h1>
+                  </div>
+                  <div>
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfi0cEIm73jf_8JINvTckHEDffrx6IiL6sjPJFh_kE3uVHGLA/closedform" class="size"></iframe>
                   </div>
               </div>
             </div>
@@ -122,7 +123,11 @@ into the {body} of the default.hbs template --}}
   }
   .desktop{
       padding-top: 2rem;
-    }
+  }
+  .size{
+    width: 100%;
+    height: 700px;
+  }
   @media only screen and (max-width: 620px) {
     .mobile{
       display: flex;
@@ -131,6 +136,9 @@ into the {body} of the default.hbs template --}}
     }
     .desktop{
       padding-top: 0rem;
+    }
+    .size{
+      height: 400px;
     }
 }
 </style>

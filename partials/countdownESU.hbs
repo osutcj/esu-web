@@ -48,10 +48,11 @@ span{
 @media only screen and (max-width: 620px) {
 	#countdown > div{
 		width:100%;
-		height:100px;
-		font-size: 30px;
+		height:auto;
+		font-size: 26px;
 		flex-direction: column;
-		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
 	}
 	.smalltext{
 		font-size: 13px;
@@ -63,14 +64,18 @@ span{
 {
 	#countdown > div{
 		width:100%;
-		height:100px;
-		font-size: 15px;
+		height:auto;
+		font-size: 38px;
 		flex-direction: column;
-		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
 	}
 	.smalltext{
-		font-size: 12px;
+		font-size: 18px;
 		font-weight: bold;
+	}
+	.mobile{
+		font-size: 15px;
 	}
 }
 </style>
@@ -93,14 +98,14 @@ span{
         </div>
         <div>
             <span id="seconds"></span>
-            <div class="smalltext">Secunde</div>
+            <div class="smalltext mobile">Secunde</div>
         </div>
     </div>
 </div>
 
 <script>
 
-var countDownDate = new Date("Apr 15, 2023 00:00:00").getTime();
+var countDownDate = new Date("May 5, 2023 00:00:00").getTime();
 
 var x = setInterval(function() {
 
@@ -120,7 +125,7 @@ var x = setInterval(function() {
                                         
 	if (distance < 0) {
 		clearInterval(x);
-		document.getElementById("countdown").innerHTML = "¡Ya llegó el 15 de abril!";
+		document.getElementById("countdown").innerHTML = "Inscrierile s-au finalizat!";
 	}
 }); 
 
