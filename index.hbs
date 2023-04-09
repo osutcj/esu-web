@@ -24,6 +24,12 @@ into the {body} of the default.hbs template --}}
     font-weight: 600;
     font-size: 1.5rem;
   }
+
+  @media screen and (max-width: 768px) {
+    .textCounters{
+      font-size: 0.7rem;
+    }
+  }
 </style>
 
 <main class="main-wrap">
@@ -52,6 +58,9 @@ into the {body} of the default.hbs template --}}
       </div>
       </section>
     </div>
+    <div class="video-container">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/0BGgQ_PDjE0" frameborder="0" allowfullscreen></iframe>
+    </div>
     <div>
       {{> carouselTestiomonials }}
     </div>
@@ -73,6 +82,18 @@ into the {body} of the default.hbs template --}}
 
 <style>
   
+.video-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.video-container iframe {
+  max-width: 100%;
+  max-height: 100%;
+}
+
 .col-md-8{flex:0 0 auto;width:66.66666667%}
 .col-md-4{flex:0 0 auto;width:33.33333333%}
 
