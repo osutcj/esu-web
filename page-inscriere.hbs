@@ -63,7 +63,7 @@ into the {body} of the default.hbs template --}}
               <div style="text-align:center; padding-top: 3rem;">
                   <div class="row">
                     <div class="col-md-6 mobile">
-                      <a href="/regulament" style="text-decoration: underline;"><h1 class="onHover">Regulament</h1></a>
+                      <a href="/regulament" ><h1 class="onHover">Regulament</h1></a>
                     </div>
                     <div class="col-md-6 mobile desktop">
                       <button style="background-color: #FF8000; border-radius: 4px;">
@@ -73,38 +73,38 @@ into the {body} of the default.hbs template --}}
                   </div>
                   <div class="row">
                     <div class="col-md-6 mobile">
-                      <a href="/gdpr" style="text-decoration: underline;"><h1 class="onHover">Formular GDPR</h1></a>
+                      <a href="/gdpr" ><h1 class="onHover">Formular GDPR</h1></a>
                     </div>
                     <div class="col-md-6 mobile desktop">
-                      <button style="background-color: #FF8000; border-radius: 4px;">
+                      <button style="background-color: #FF8000; border-radius: 25px; padding: 10px">
                             <a href="https://esu.osut.org/content/files/2023/04/Formular-GDPR-ESU-2023.pdf" target="_blank" style="color:white;font-size:30px;">Descarcă <i class="fa fa-download"></i></a>
                       </button>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-md-6 mobile">
-                      <a href="/acord-parental" style="text-decoration: underline;"><h1 class="onHover">Acord Parental</h1></a>
+                      <a href="/acord-parental" ><h1 class="onHover">Acord Parental</h1></a>
                     </div>
                     <div class="col-md-6 mobile desktop">
-                      <button style="background-color: #FF8000; border-radius: 4px;">
+                      <button style="background-color: #FF8000; border-radius: 25px; padding: 10px">
                           <a href="https://esu.osut.org/content/files/2023/04/Acord-Parental_ESU2023.pdf" target="_blank" style="color:white;font-size:30px;">Descarcă <i class="fa fa-download"></i></a>
                       </button>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-md-6 mobile">
-                      <a href="/declaratie" style="text-decoration: underline;"><h1 class="onHover">Declarație pe propria răspundere</h1></a>
+                      <a href="/declaratie"><h1 class="onHover">Declarație pe propria răspundere</h1></a>
                     </div>
                     <div class="col-md-6 mobile desktop">
-                      <button style="background-color: #FF8000; border-radius: 4px;">
+                      <button style="background-color: #FF8000; border-radius: 25px; padding: 10px">
                           <a href="https://esu.osut.org/content/files/2023/04/Declara-ie-pe-propria-r-spundere_ESU2023.pdf" target="_blank" style="color:white;font-size:30px;">Descarcă <i class="fa fa-download"></i></a>
                       </button>
                     </div>
                   </div>
                   <div class="align-items:center;">
-                    <h1 style="text-decoration: underline;">Formular Înscriere</h1>
+                    <h1 >Formular Înscriere</h1>
                     <div style="padding-bottom: 2rem;">
-                      <button style="background-color: #FF8000; border-radius: 4px;">
+                      <button style="background-color: #FF8000; border-radius: 25px; padding: 10px">
                           <a href="https://docs.google.com/forms/d/e/1FAIpQLSfi0cEIm73jf_8JINvTckHEDffrx6IiL6sjPJFh_kE3uVHGLA/viewform" target="_blank" style="color:white;font-size:30px;">Formular Înscriere <i class="fa fa-download"></i></a>
                       </button>
                     </div>
@@ -123,10 +123,9 @@ into the {body} of the default.hbs template --}}
 
 <style>
   h1.onHover:hover{
-    background-color: whitesmoke;
-    color: black;
-    text-decoration-color: black;
+    background-color: rgb(31, 29, 29, 0.5);
     text-decoration: underline;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
   }
   .desktop{
       padding-top: 2rem;
