@@ -14,124 +14,132 @@
 
 {{!-- The tag below means: insert everything in this file
 into the {body} of the default.hbs template --}}
-{{!< default}}
+{{!--{{!< default}}--}}
 
 {{!-- Special header.hbs partial to generate the <header> tag --}}
 {{> header background=@site.cover_image }}
 
 <style>
-  .textCounters{
-    font-weight: 600;
-    font-size: 1.5rem;
-  }
-
-  @media screen and (max-width: 768px) {
-    .textCounters{
-      font-size: 0.8rem;
-    }
-  }
-</style>
-
-<main class="main-wrap">
-  <div class="l-content">
-    {{> intro}}
-    <!-- Scirti e PR -->
-    <div class="l-wrapper" style="margin-bottom: 4%; margin-top:4%">
-      <section class="bg-dark text-white py-5 ">
-      <div class="container">
-        <div class="row justify-content-center text-center" >
-        <div class="col-md-4" style = "margin-top: 3%;">
-            <span id="count1" class="display-4" ></span><span class="display-4">+</span>
-            <br />
-            <span class="textCounters">Participanți</span>    
-        </div>
-        <div class="col-md-4" style = "margin-top: 3%; ">
-          <span id="count2" class="display-4"></span><span class="display-4">+</span>
-          <br />
-          <span class="textCounters">Voluntari</span>
-        </div>
-        <div class="col-md-4" style = "margin-top: 3%;">
-          <span id="count3" class="display-4"></span>
-          <br />
-          <span class="textCounters">Zile</span>
-        </div>
-        </div>
-      </div>
-      </section>
-    </div>
-    <div class="video-container" style="margin-top: 10px;">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/WQGNFJuFBdI" frameborder="0" allowfullscreen></iframe>
-    </div>
-    <div>
-      {{> carouselTestiomonials }}
-    </div>
-
-    <div class="row" style="padding-right: 10%; padding-left: 10%; margin-top: 4rem; margin-bottom: 4rem;">
-      <div class="col-md-4" style="display:flex; justify-content: center; align-items:center;"> 
-        <img class="toBeDeletedMobile" style="object-fit: contain; max-width: 125%; margin: 0 auto;" src="assets/images/Ghid/partea1nou.png">
-      </div>
-      <div class="col-md-8" style="display:flex; justify-content: center; align-items:center;">
-        <img class="imgStyle" style="object-fit: contain;" src="assets/images/Ghid/partea2nou.png">
-      </div>
-    </div>
-
-    <div class="l-wrapper" style="margin-bottom: 20px; margin-top: 20px;"> 
-      {{> colapseCards }}
-    </div>
-  </div>
-</main>
-
-<style>
-  
-.video-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+/* Default (above 1800px) */
+.textCounters {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #fac82d;
+  font-family: 'Poppins', sans-serif;
 }
 
-.video-container iframe {
-  max-width: 100%;
-  max-height: 100%;
+.display-4 {
+  font-size: 2.7rem !important;
 }
 
-.col-md-8{flex:0 0 auto;width:66.66666667%}
-.col-md-4{flex:0 0 auto;width:33.33333333%}
+/* 1501px - 1800px */
+@media (max-width: 1800px) {
+  .textCounters {
+    font-size: 1.7rem;
+  }
+  .display-4 {
+    font-size: 2.4rem !important;
+  }
+}
 
-@media only screen and (max-width: 600px) {
-  .row, .col-md-8, .col-md-4,{
+/* 951px - 1500px */
+@media (max-width: 1500px) {
+  .textCounters {
+    font-size: 1.4rem;
+  }
+  .display-4 {
+    font-size: 2.2rem !important;
+  }
+}
+
+/* 768px - 950px */
+@media (max-width: 950px) {
+  .textCounters {
+    font-size: 1.2rem;
+  }
+  .display-4 {
+    font-size: 1.8rem !important;
+  }
+}
+
+/* Below 768px */
+@media (max-width: 768px) {
+  .textCounters {
+    font-size: 0.9rem;
+  }
+  .display-4 {
+    font-size: 1.6rem !important;
+  }
+}
+
+
+
+  /* Ensure no margin or padding on body and html */
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+
+
+/* Move the intro image to the top */
+.intro-img {
+    margin: 0;
+    padding: 0;
     width: 100%;
-    display: flex;
-    margin: auto;
-  }
+    position: relative;
+    top: 0;
 }
-</style>
 
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-  function counter(id, start, end, duration) {
-    let obj = document.getElementById(id),
-    current = start,
-    range = end - start,
-    increment = end > start ? 1 : -1,
-    step = Math.abs(Math.floor(duration / range)),
-    timer = setInterval(() => {
-      current += increment;
-      obj.textContent = current;
-      if (current == end) {
-      clearInterval(timer);
-      }
-    }, step);
-  }
-  counter("count1", 1674, 1800, 5000);
-  counter("count2", 573, 700, 5000);
-  counter("count3", 0, 14, 3000);
-  });
+/* Ensure the image takes full width and is not pushed down */
+.intro-img img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+}
 
-</script>
+/* Ensure main content is not adding space at the top */
+.main-wrap {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif; /* Applying the new font */
+}
+
+/* Remove any possible padding in parent elements */
+.l-content {
+    margin: 0;
+    padding: 0;
+}
+ .ce-e-esu {
+  max-width: 70%;
+  margin: 60px auto;
+  text-align: justify;
+  font-family: 'Poppins', sans-serif;
+  padding: 0 20px;
+  margin-bottom: 0%;
+}
+
+.ce-e-esu-title {
+  color: #fac82d; 
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 3vh;
+  text-shadow: 1px 2px 1px rgba(0, 0, 0, 0.2); 
+}
 
 
-<style>
+.ce-e-esu-description {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #073B7F; /* If on dark background; change to #000 or #333 for light bg */
+  margin-bottom: 20px;
+}
+
     .imgStyle{
       max-width: 70%; 
     }
@@ -148,7 +156,519 @@ into the {body} of the default.hbs template --}}
       max-width: 100%;
     }
   }
+
+
+
+/* Default: auto height to fit image */
+.slideshow-container {
+  position: relative;
+  max-width: 70vw;
+  height: auto;
+  margin: 5vh auto 8vh auto;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  transition: height 0.4s ease-in-out;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 100%;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out, left 0.8s ease-in-out;
+}
+
+.slide img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+
+
+.slide.active {
+  left: 0;
+  opacity: 1;
+  z-index: 2;
+  position: relative;
+}
+
+/* Default (Desktop - over 1800px) */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  font-size: 28px;
+  font-weight: bold;
+  color: white;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 50%;
+  user-select: none;
+  z-index: 3;
+  text-align: center;
+  transition: color 0.4s ease-in-out, background 0.4s ease-in-out;
+}
+
+.prev:hover, .next:hover {
+  background: #073E7F;
+  color: #fac82d;
+}
+
+.prev {
+  left: 20px;
+}
+
+.next {
+  right: 20px;
+}
+
+/* Between 1501px and 1800px */
+@media (max-width: 1800px) {
+  .prev, .next {
+    width: 52px;
+    height: 52px;
+    line-height: 52px;
+    font-size: 24px;
+  }
+}
+
+/* Between 951px and 1500px */
+@media (max-width: 1500px) {
+  .prev, .next {
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    font-size: 20px;
+  }
+}
+
+/* Between 768px and 950px */
+@media (max-width: 950px) {
+  .prev, .next {
+    width: 38px;
+    height: 38px;
+    line-height: 38px;
+    font-size: 18px;
+  }
+}
+
+/* Under 768px */
+@media (max-width: 768px) {
+  .prev, .next {
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    font-size: 16px;
+  }
+}
+
+.dots-container {
+  position: absolute;
+  bottom: 15px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 4;
+}
+
+.dot {
+  display: inline-block;
+  width: 30px;
+  height: 4px;
+  margin: 5px 4px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background-color 0.4s ease;
+}
+
+.dot.active {
+  background-color: #FAC82D;
+}
+
+.faq-hero {
+  position: relative;
+  background-image: url('/assets/images/Banner Page/MainPage.jpg');
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.faq-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); /* Adjust opacity here */
+  z-index: -1;
+}
+
+.faq-hero h1 {
+  color: #ffffff;
+  font-size: 6rem;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+  margin: 0;
+  line-height: 1.4; /* Slightly increased line spacing */
+}
+
+.faq-hero h1 .line1 {
+  margin-bottom: 0.5em;
+}
+.faq-hero h1 .line2 {
+  margin-top: 0;
+}
+
+/* 1501px - 1800px */
+@media (max-width: 1800px) {
+  .faq-hero h1 {
+    font-size: 5.2rem;
+    line-height: 1.3;
+  }
+
+  .faq-hero h1 .line1 {
+    margin-bottom: 0.45em;
+  }
+}
+
+/* 951px - 1500px */
+@media (max-width: 1500px) {
+  .faq-hero h1 {
+    font-size: 4.4rem;
+    line-height: 1.3;
+  }
+
+  .faq-hero h1 .line1 {
+    margin-bottom: 0.4em;
+  }
+}
+
+/* 768px - 950px */
+@media (max-width: 950px) {
+  .faq-hero h1 {
+    font-size: 3.8rem;
+    line-height: 1.25;
+  }
+
+  .faq-hero h1 .line1 {
+    margin-bottom: 0.35em;
+  }
+}
+
+/* Below 768px */
+@media (max-width: 768px) {
+  .faq-hero h1 {
+    font-size: 2.6rem;
+    line-height: 1.2;
+    padding: 0 10px;
+  }
+
+  .faq-hero h1 .line1 {
+    margin-bottom: 0.3em;
+  }
+}
+
+
+@media (max-width: 767px) {
+  .ce-e-esu-title,
+  .ce-e-esu-motto {
+    font-size: 1.6rem;
+  }
+
+  .ce-e-esu-description,
+  .ce-e-esu-description2 {
+    font-size: 0.9rem;
+  }
+
+  .responsive-highlight {
+    font-size: 1.2rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 950px) {
+  .ce-e-esu-title,
+  .ce-e-esu-motto {
+    font-size: 1.8rem;
+  }
+
+  .ce-e-esu-description,
+  .ce-e-esu-description2 {
+    font-size: 1rem;
+  }
+
+  .responsive-highlight {
+    font-size: 1.4rem;
+  }
+}
+
+@media (min-width: 951px) and (max-width: 1500px) {
+  .ce-e-esu-title,
+  .ce-e-esu-motto {
+    font-size: 2.1rem;
+  }
+
+  .ce-e-esu-description,
+  .ce-e-esu-description2 {
+    font-size: 1.05rem;
+  }
+
+  .responsive-highlight {
+    font-size: 1.6rem;
+  }
+}
+
+@media (min-width: 1501px) and (max-width: 1800px) {
+  .ce-e-esu-title,
+  .ce-e-esu-motto {
+    font-size: 2.3rem;
+  }
+
+.ce-e-esu-description,
+  .ce-e-esu-description2 {
+    font-size: 1.08rem;
+  }
+
+  .responsive-highlight {
+    font-size: 1.7rem;
+  }
+}
 </style>
+
+<main class="main-wrap" style="background-color: #ffffff; margin: 0;padding: 0;">
+  <div class="l-content">
+  <section class="faq-hero">
+  <h1>
+    <span class="line1">ENGINEERING SUMMER</span><br />
+    <span class="line2">UNIVERSITY</span>
+  </h1>
+</section>
+   
+<section class="ce-e-esu">
+  <h2 class="ce-e-esu-title">Ce este Engineering Summer University?</h2>
+  <p class="ce-e-esu-description"><br>Engineering Summer University este o tabără de vară de două săptămâni, destinată elevilor de clasa a XI-a pasionați de domeniile STEM, curioși să exploreze aceste domenii captivante și să trăiască experiența de student într-un mediu dinamic, ieșind din zona de confort.
+<br><br>
+Participanții vor avea parte de un program interactiv și antrenant, ce îmbină teoria cu practica. Pe lângă cursuri susținute de profesori renumiți de la Universitatea Tehnică din Cluj-Napoca, elevii vor lua parte la activități de laborator, punând în aplicare cunoștințele acumulate într-un mod practic și inovator.
+<br><br>
+Dincolo de partea academică, tabăra include și numeroase activități recreative menite să ajute participanții să-și dezvolte abilitățile de comunicare și să se integreze într-o comunitate activă și energică. Cazarea în căminele studențești din Observator le va oferi ocazia de a experimenta viața de campus într-un mod autentic.<br><br>
+Dacă încă nu ți-ai făcut planuri pentru perioada 19 iulie - 2 august, alătură-te nouă pentru două săptămâni pline de experiențe de neuitat, alături de tineri entuziaști din întreaga țară!
+
+  </p>
+</section>
+
+
+    <div class="l-wrapper" style="margin-bottom: 4%;">
+      <section class="bg-dark text-white py-5 ">
+      <div class="container">
+        <div class="row justify-content-center text-center" >
+        <div class="col-md-4">
+            <span id="count1" class="display-4" ></span><span class="display-4">+</span>
+            <br />
+            <span class="textCounters">Participanți</span>    
+        </div>
+        <div class="col-md-4">
+          <span id="count2" class="display-4"></span><span class="display-4">+</span>
+          <br />
+          <span class="textCounters">Voluntari</span>
+        </div>
+        <div class="col-md-4">
+          <span id="count3" class="display-4"></span>
+          <br/>
+          <span class="textCounters">Zile</span>
+        </div>
+        </div>
+      </div>
+      </section>
+    </div>
+   
+   <section class="video-background">
+  <div class="ce-e-esu">
+    <h2 class="ce-e-esu-title">Aftermovie ESU 2023</h2>
+    <div class="video-container" style="margin-bottom: 30px">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/kLt-an1mT8k" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+    
+    <!--<div class="row" style="padding-right: 10%; padding-left: 10%; margin-top: 4rem; margin-bottom: 4rem;">
+      <div class="col-md-4" style="display:flex; justify-content: center; align-items:center;"> 
+        <img class="toBeDeletedMobile" style="object-fit: contain; max-width: 125%; margin: 0 auto;" src="assets/images/Ghid/partea1nou.png">
+      </div>
+      <div class="col-md-8" style="display:flex; justify-content: center; align-items:center;">
+        <img class="imgStyle" style="object-fit: contain;" src="assets/images/Ghid/partea2nou.png">
+      </div>
+    </div>
+
+    <div class="l-wrapper" style="margin-bottom: 20px; margin-top: 20px;"> 
+      {{> colapseCards }}
+    </div>
+  </div>-->
+<section class="ce-e-esu">
+  <h2 class="ce-e-esu-title">Iată ce înseamnă să fii participant la ESU</h2>
+</section>
+
+<div class="slideshow-container">
+  <div class="slide fade active">
+    <img src="/assets/images/Main Page/1.jpg">
+  </div>
+  <div class="slide fade">
+    <img src="/assets/images/Main Page/2.jpg">
+  </div>
+  <div class="slide fade">
+    <img src="/assets/images/Main Page/3.jpg">
+  </div>
+  <div class="slide fade">
+    <img src="/assets/images/Main Page/4.jpg">
+  </div>
+  <div class="slide fade">
+    <img src="/assets/images/Main Page/5.jpg">
+  </div>
+  <div class="slide fade">
+    <img src="/assets/images/Main Page/6.jpg">
+  </div>
+  <div class="slide fade">
+    <img src="/assets/images/Main Page/7.jpg">
+  </div>
+  <div class="slide fade">
+    <img src="/assets/images/Main Page/8.jpg">
+  </div>
+
+  <!-- Arrows -->
+  <a class="prev" onclick="plusSlides(-1)">❮</a>
+  <a class="next" onclick="plusSlides(1)">❯</a>
+
+  <!-- Dots Overlaid -->
+  <div class="dots-container">
+    <span class="dot" onclick="currentSlide(0)"></span>
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+    <span class="dot" onclick="currentSlide(4)"></span>
+    <span class="dot" onclick="currentSlide(5)"></span>
+    <span class="dot" onclick="currentSlide(6)"></span>
+    <span class="dot" onclick="currentSlide(7)"></span>
+  </div>
+</div>
+
+
+
+</main>
+
+<style>
+.video-background {
+  position: relative;
+  max-width: 100%;
+  background-color: #073B7F;
+  height: auto;
+  padding: 3vh 0; /* Top and bottom padding using viewport height */
+}
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* Maintains 16:9 aspect ratio */
+  padding-top: 4vh;
+  height: 0;
+  overflow: hidden;
+  margin: 0 auto 8vh auto;
+  max-width: 80vw;
+  border-radius: 15px;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+
+.col-md-8{flex:0 0 auto;width:66.66666667%}
+.col-md-4{flex:0 0 auto;width:33.33333333%}
+
+@media only screen and (max-width: 600px) {
+  .row, .col-md-8, .col-md-4,{
+    width: 100%;
+    display: flex;
+    margin: auto;
+  }
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    function counter(id, start, end, duration) {
+      let obj = document.getElementById(id),
+        current = start,
+        range = end - start,
+        increment = end > start ? 1 : -1,
+        step = Math.abs(Math.floor(duration / range)),
+        timer = setInterval(() => {
+          current += increment;
+          obj.textContent = current;
+          if (current == end) {
+            clearInterval(timer);
+          }
+        }, step);
+    }
+
+    counter("count1", 1700, 2200, 4000);
+    counter("count2", 200, 700, 4000);
+    counter("count3", 0, 14, 8000);
+  });
+
+  let slideIndex = 0;
+  const slides = document.querySelectorAll(".slide");
+  const dots = document.querySelectorAll(".dot");
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.remove("active");
+      slide.style.left = (i < index) ? '-100%' : '100%';
+    });
+    slides[index].classList.add("active");
+    slides[index].style.left = '0';
+
+    dots.forEach(dot => dot.classList.remove("active"));
+    if (dots[index]) dots[index].classList.add("active");
+  }
+
+  function plusSlides(n) {
+    slideIndex += n;
+    if (slideIndex >= slides.length) slideIndex = 0;
+    if (slideIndex < 0) slideIndex = slides.length - 1;
+    showSlide(slideIndex);
+  }
+
+  function currentSlide(n) {
+    slideIndex = n;
+    showSlide(slideIndex);
+  }
+
+  // Initialize
+  showSlide(slideIndex);
+</script>
+
+
 {{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
 {{#contentFor "scripts"}}
   <script defer src="{{asset "js/home.js"}}"></script>

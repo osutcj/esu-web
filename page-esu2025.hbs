@@ -1,0 +1,661 @@
+{{!-- This block preloads specific assets for the index page --}}
+{{#contentFor "preload"}}
+  <link rel="preload" href="{{asset "css/home.css"}}" as="style" />
+  <link rel="preload" href="{{asset "css/listing.css"}}" as="style" />
+  <link rel="preload" href="{{asset "js/home.js"}}" as="script" />
+  <link rel="stylesheet" type="text/css" href="{{asset "css/bootstrapClasses.css"}}" media="screen" />
+{{/contentFor}}
+
+{{!-- This block loads specific styles for the index page --}}
+{{#contentFor "styles"}}
+  <link rel="stylesheet" type="text/css" href="{{asset "css/home.css"}}" media="screen" />
+  <link rel="stylesheet" type="text/css" href="{{asset "css/listing.css"}}" media="screen" />
+{{/contentFor}}
+
+{{!-- The tag below means: insert everything in this file
+into the {body} of the default.hbs template --}}
+{{!--{{!< default}}--}}
+
+{{!-- Special header.hbs partial to generate the <header> tag --}}
+{{> header background=@site.cover_image }}
+
+
+<style>
+  /* Ensure no margin or padding on body and html */
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* Move the intro image to the top */
+.intro-img {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    position: relative;
+    top: 0;
+}
+
+/* Ensure the image takes full width and is not pushed down */
+.intro-img img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+}
+
+/* Ensure main content is not adding space at the top */
+.main-wrap {
+    margin: 0;
+    padding: 0;
+}
+
+/* Remove any possible padding in parent elements */
+.l-content {
+    margin: 0;
+    padding: 0;
+}
+
+.custom-container {
+    width: 75vw; /* 75% of viewport width */
+    height: 35vh; /* 35% of viewport height */
+    background-color: #073B7F;
+    border-radius: 20px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7); /* Black shadow */
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transition */
+    font-family: 'Poppins', sans-serif; /* Applying the new font */
+    margin-bottom: 30px; /* ⬅️ Increased space between containers */
+    margin-top: 30px;
+}
+
+/* Grow effect on hover */
+.custom-container:hover {
+    transform: scale(1.05); /* Slightly increase size */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.8); /* Enhanced shadow effect */
+}
+
+/* Left Section (Photo + Social Media) */
+.left-section {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+/* Circular Photo */
+.photo{
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    margin-bottom: 30px; /* Increased space between photo & links */
+}
+
+.photo img{
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    
+}
+
+/* Social Media Links */
+.social-links {
+    display: flex;
+    gap: 40px;
+}
+
+.social-links a {
+    color: white;
+    font-size: 25px;
+    transition: color 0.3s ease-in-out;
+}
+
+.social-links a:hover {
+    color: #fac82d; /* Hover effect */
+}
+
+/* Right Section (Text Content) */
+.right-section {
+    width: 70%;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align items at the top */
+}
+
+/* Title - Bigger font size and moved higher */
+.right-section h2 {
+    font-size: 2.2rem; /* Increased font size */
+    margin-bottom: 30px; /* More space between title & subtitle */
+    margin-top: -5%; /* Moves title higher */
+    font-family: 'Poppins', sans-serif; /* Font applied */
+    color: #ffffff;
+}
+
+/* Subtitle - Moved higher and increased spacing */
+.right-section h3 {
+    font-size: 1.3rem; /* Slightly bigger */
+    color: #FAC82D;
+    margin-bottom: 5%; /* More spacing between subtitle and paragraph */
+    margin-top: -10px; /* Moves subtitle higher */
+    font-family: 'Poppins', sans-serif; /* Font applied */
+}
+
+/* Paragraph - No changes but ensures consistency */
+.right-section p {
+    font-size: 1.1rem;
+    opacity: 1;
+    font-family: 'Poppins', sans-serif; /* Font applied */
+    text-align: justify;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .custom-container {
+        flex-direction: column;
+        height: auto;
+        padding: 15px;
+        margin-bottom: 20px; /* More space between containers on small screens */
+        margin-top: 30px;
+    }
+
+    .left-section {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .right-section {
+        width: 100%;
+        text-align: center;
+        padding-left: 0;
+    }
+}
+
+ .ce-e-esu {
+  max-width: 70%;
+  margin: 60px auto;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  padding: 0 20px;
+  margin-bottom: 0%;
+}
+
+.ce-e-esu-title {
+  color: #fac82d; 
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 3vh;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2); 
+}
+
+
+.ce-e-esu-description {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #073B7F; /* If on dark background; change to #000 or #333 for light bg */
+  margin-bottom: 20px;
+}
+
+.faq-section {
+    background: #ffffff;
+    padding: 50px 5%;
+    font-family: 'Poppins', sans-serif;
+}
+
+.faq-container {
+    max-width: 75%;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background: #073B7F;
+    border-radius: 15px;
+    margin-bottom: 25px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+    transition: transform 0.2s ease-in-out; /* increase size of item (both question and answer) */
+}
+
+.faq-item:hover {
+    transform: scale(1.02); /* bigger item */
+}
+
+.faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    color: rgb(255, 255, 255);
+    font-size: 1.4rem;
+    padding: 20px;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+    transition: background 0.3s; /* for color change */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 3%;
+    padding-left: 3%;
+    font-family: 'Poppins', sans-serif;
+}
+
+.faq-arrow {
+    transition: transform 0.4s ease-in-out; /* arrow spin */
+}
+
+.faq-item.active .faq-arrow {
+    transform: rotate(180deg); /* arrow 180deg spin */
+}
+
+/* Ensure the arrow rotates properly when active */
+.rotate {
+    transform: rotate(180deg);
+    transition: transform 0.3s ease-in-out;
+}
+
+.faq-question:hover {
+    background: #fac82d;
+    color: #073B7F;
+    transition: all 0.3s ease-in-out; /* color change when hover */
+}
+
+/* FAQ Answer - Smoother expand/collapse */
+.faq-answer {
+    background: #1366d3;
+    color: rgb(255, 255, 255);
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1), padding 0.4s ease-in-out; /* expand the answer */
+    font-family: 'Poppins', sans-serif;
+}
+
+.faq-answer a {
+  color: #ffffff; /* default white color */
+  text-decoration: underline;
+  transition: color 0.3s ease-in-out;
+}
+
+.faq-answer a:hover {
+  color: #fac82d; /* yellow on hover */
+}
+
+
+/* Open state - smooth transition */
+.faq-item.active .faq-answer {
+    max-height: 250vh; /* Increased max height for better visibility */
+    padding: 20px;
+}
+
+.custom-faq-link-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(145deg, #094b9c, #052d6a);
+    color: #ffffff;
+    font-size: 2.2rem;
+    font-weight: 600;
+    height: 8vh;
+    padding: 0 5vw;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: 
+        background 0.6s ease, 
+        color 0.5s ease, 
+        box-shadow 0.5s ease, 
+        transform 0.4s ease;
+    font-family: 'Poppins', sans-serif;
+    width: fit-content;
+    margin: 4vh auto;
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.3),
+        0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(0);
+}
+
+@media (max-width: 1800px) {
+  .custom-faq-link-button {
+    font-size: 2rem;
+    height: 9vh;
+    padding: 0 5.5vw;
+  }
+}
+
+@media (max-width: 1500px) {
+  .custom-faq-link-button {
+    font-size: 2rem;
+    height: 8.5vh;
+    padding: 0 5vw;
+  }
+}
+
+@media (max-width: 950px) {
+  .custom-faq-link-button {
+    font-size: 1.8rem;
+    height: 8vh;
+    padding: 0 4.5vw;
+  }
+}
+
+@media (max-width: 767px) {
+  .custom-faq-link-button {
+    font-size: 1.6rem;
+    height: 7.5vh;
+    padding: 0 4vw;
+  }
+}
+
+
+.custom-faq-link-button:hover {
+    background: linear-gradient(145deg, #fac82d, #f7b800);
+    color: #073B7F;
+    box-shadow:
+        0 12px 28px rgba(0, 0, 0, 0.35),
+        0 6px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+.custom-faq-link-button:active {
+    transform: translateY(1px);
+    box-shadow:
+        0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.faq-hero {
+  position: relative;
+  background-image: url('/assets/images/Banner Page/ESU2025.JPG');
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.faq-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); /* Adjust opacity here */
+  z-index: -1;
+}
+
+.faq-hero h1 {
+  color: #ffffff;
+  font-size: 6rem;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+  margin: 0;
+  line-height: 1.4; /* Slightly increased line spacing */
+}
+
+.faq-hero h1 .line1 {
+  margin-bottom: 0.5em;
+}
+.faq-hero h1 .line2 {
+  margin-top: 0;
+  font-size: 4.5rem;
+}
+
+/* 1501px - 1800px */
+@media (max-width: 1800px) {
+  .faq-hero h1 {
+    font-size: 5.2rem;
+    line-height: 1.3;
+  }
+
+  .faq-hero h1 .line1 {
+    margin-bottom: 0.45em;
+  }
+
+  .faq-hero h1 .line2 {
+  font-size: 4rem;
+}
+}
+
+/* 951px - 1500px */
+@media (max-width: 1500px) {
+  .faq-hero h1 {
+    font-size: 4.4rem;
+    line-height: 1.3;
+  }
+
+  .faq-hero h1 .line1 {
+    margin-bottom: 0.4em;
+  }
+
+  .faq-hero h1 .line2 {
+  font-size: 3rem;
+}
+}
+
+/* 768px - 950px */
+@media (max-width: 950px) {
+  .faq-hero h1 {
+    font-size: 3.8rem;
+    line-height: 1.25;
+  }
+
+  .faq-hero h1 .line1 {
+    margin-bottom: 0.35em;
+  }
+
+  .faq-hero h1 .line2 {
+  font-size: 2.4rem;
+}
+
+}
+
+/* Below 768px */
+@media (max-width: 768px) {
+  .faq-hero h1 {
+    font-size: 2.6rem;
+    line-height: 1.2;
+    padding: 0 10px;
+  }
+
+  .faq-hero h1 .line1 {
+    margin-bottom: 0.3em;
+  }
+  .faq-hero h1 .line2 {
+  font-size: 1.6rem;
+}
+}
+
+@media (max-width: 767px) {
+  .ce-e-esu-title,
+  .ce-e-esu-motto {
+    font-size: 1.6rem;
+  }
+
+  .ce-e-esu-description,
+  .ce-e-esu-description2 {
+    font-size: 0.9rem;
+  }
+
+  .responsive-highlight {
+    font-size: 1.2rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 950px) {
+  .ce-e-esu-title,
+  .ce-e-esu-motto {
+    font-size: 1.8rem;
+  }
+
+  .ce-e-esu-description,
+  .ce-e-esu-description2 {
+    font-size: 1rem;
+  }
+
+  .responsive-highlight {
+    font-size: 1.4rem;
+  }
+}
+
+@media (min-width: 951px) and (max-width: 1500px) {
+  .ce-e-esu-title,
+  .ce-e-esu-motto {
+    font-size: 2.1rem;
+  }
+
+  .ce-e-esu-description,
+  .ce-e-esu-description2 {
+    font-size: 1.05rem;
+  }
+
+  .responsive-highlight {
+    font-size: 1.6rem;
+  }
+}
+
+@media (min-width: 1501px) and (max-width: 1800px) {
+  .ce-e-esu-title,
+  .ce-e-esu-motto {
+    font-size: 2.3rem;
+  }
+
+.ce-e-esu-description,
+  .ce-e-esu-description2 {
+    font-size: 1.08rem;
+  }
+
+  .responsive-highlight {
+    font-size: 1.7rem;
+  }
+}
+
+</style>
+
+<main class="main-wrap" style="background-color: #ffffff; margin: 0;padding: 0; align-items: center;">
+<div class="l-content">
+  <section class="faq-hero">
+  <h1>
+    <span class="line1">ESU 2025</span><br />
+    <span class="line2">19 IULIE - 2 AUGUST</span><br />
+  </h1>
+</section>
+
+
+<section class="ce-e-esu">
+  <h2 class="ce-e-esu-title">Înscrie-te la ESU 2025!</h2>
+  <a href="https://docs.google.com/forms/d/1wkNLOQzfr3UOxnzEu-BquwEqHGr-WrKWSkozMKz_lQo" class="custom-faq-link-button">
+  <span>Înscriere</span>
+  
+</a>
+  <h3 class="ce-e-esu-title">Perioada de înscrieri: 7 aprilie - 4 mai</h3>
+</section>
+
+<section class="faq-section">
+        <div class="faq-container">
+
+<div class="faq-item">
+    <button class="faq-question">
+        <b>Costul taberei</b>
+        <i class="fas fa-chevron-down faq-arrow"></i>
+    </button>
+    <div class="faq-answer">
+  <p>
+    Costul pentru participarea la tabăra de vară este de 650 lei/elev. Acest preț include cazarea, mesele, precum și toate activitățile educative și recreative organizate pe parcursul taberei. 
+  </p>
+</div>
+</div>
+
+<div class="faq-item">
+    <button class="faq-question">
+        <b>Cum te înscrii la ESU?</b>
+        <i class="fas fa-chevron-down faq-arrow"></i>
+    </button>
+    <div class="faq-answer">
+        <p> Înscrierea la tabăra de vară se face foarte ușor! Tot ce trebuie să faci este să completezi formularul disponibil pe site-ul nostru. În doar câțiva pași simpli, îți poți rezerva locul pentru o experiență de neuitat!
+            </p>
+    </div>
+</div>
+
+<div class="faq-item">
+    <button class="faq-question">
+        <b>Acte necesare pentru înscriere</b>
+        <i class="fas fa-chevron-down faq-arrow"></i>
+    </button>
+    <div class="faq-answer">
+        <p> 1. Formularul de înscriere de la adresa esu.osut.org (completat online) <br>
+        	2. Adeverință din partea instituției de învățământ care atestă calitatea de elev în clasa a XI-a a aplicantului <br>
+            3. Regulamentul prezent semnat de către participant și reprezentantul legal al acestuia pe fiecare pagină și scanat <br>
+            4. Fotografie de profil (format .jpeg ¾, asigurându-vă că fotografia este clară și că fața este vizibilă, nu e obligatoriu să fie poza de buletin) <br>
+            5. Formular de acord a prelucrării datelor cu caracter personal (GDPR) <br>
+            6. Diplome care să ateste activitatea extracurriculară din perioada liceului menționată în formular <br>
+            7. Copie după buletin <br>
+            8. Acord parental - semnarea acordului parental atestă faptul că părinții aplicantului au luat la cunoștință și sunt de acord cu prezentul regulament, sau, în cazul în care aplicantul este major (are peste 18 ani împliniți, înainte de începerea proiectului), declarație pe proprie răspundere semnată de către acesta <br>
+            9. Aviz epidemiologic <br>
+            10. Adeverință medicală care atestă faptul că participantul este clinic sănătos <br>
+            11. Adeverință medicală în care sunt precizate eventualele afecțiuni medicale (ex: hipertensiune arterială severă, astm bronșic, epilepsie, hepatită A, B sau C activă) <br>
+            12. Copie după pașaport (doar în cazul aplicanților internaționali)<br></p>
+    </div>
+</div>
+
+<div class="faq-item">
+    <button class="faq-question">
+        <b>Documente importante</b>
+        <i class="fas fa-chevron-down faq-arrow"></i>
+    </button>
+    <div class="faq-answer">
+  <p>
+    1.  Regulament ESU 2025 (<a href="/assets/documente/Regulament participanți ESU - 2025.pdf" download><u>descarcă aici</u></a>)<br>
+    2.  Formular GDPR (<a href="/assets/documente/Formular GDPR ESU 2025.pdf" download><u></u>descarcă aici</u></a>)<br>
+    3.  Acord Parental (<a href="/assets/documente/Acord Parental ESU 2025.pdf" download><u></u>descarcă aici</u></a>)<br>
+    4.  Declarație pe proprie răspundere (<a href="/assets/documente/Declarație pe propria răspundere ESU2025.pdf" download><u></u>descarcă aici</u></a>)<br>
+  </p>
+</div>
+
+</div>
+</div>
+</section>
+
+
+
+</main>
+
+
+
+<script>
+ 
+
+document.addEventListener("DOMContentLoaded", function () {
+    const questions = document.querySelectorAll(".faq-question");
+
+    questions.forEach((question) => {
+        question.addEventListener("click", function () {
+            const parent = this.parentElement;
+            const arrow = this.querySelector(".faq-arrow");
+
+            // Toggle the active class on the clicked FAQ item
+            parent.classList.toggle("active");
+            arrow.classList.toggle("rotate"); // Rotate the arrow
+        });
+    });
+});
+
+
+</script>
+
+{{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
+{{#contentFor "scripts"}}
+  <script defer src="{{asset "js/home.js"}}"></script>
+{{/contentFor}}

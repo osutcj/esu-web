@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 .row {
     --bs-gutter-x: 1.5rem;
     --bs-gutter-y: 0;
@@ -250,7 +251,7 @@ width: 50%;
 .min-vh-100{min-height:100vh!important}
 .text-center{text-align:center!important}
 .col-md-4{flex:0 0 auto;width:33.33333333%}
-.display-4{font-size:calc(1.475rem + 2.7vw);font-weight:300;line-height:1.2}@media (min-width:1200px){.display-4{font-size:3.5rem}}
+.display-4{font-size:calc(1.475rem + 2.7vw);font-weight:3rem;line-height:1.2;color:#fac82d;font-family: 'Poppins', sans-serif;}@media (min-width:1200px){.display-4{font-family: 'Poppins', sans-serif;font-size:3rem; color:#fac82d}}
 .col-sm-12{-webkit-box-flex:0;-ms-flex:0 0 100%;flex:0 0 100%;max-width:100%}
 .d-flex{display:-webkit-box!important;display:-ms-flexbox!important;display:flex!important}
 .flex-column{-webkit-box-orient:vertical!important;-webkit-box-direction:normal!important;-ms-flex-direction:column!important;flex-direction:column!important}

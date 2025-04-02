@@ -1,106 +1,414 @@
-{{!--
-This header template is shared across all the pages.
---}}
 
-<header class="m-header {{#if background}}with-picture{{/if}} js-header">
-  <div class="m-mobile-topbar" data-animate="fade-down">
-    <button class="m-icon-button in-mobile-topbar js-open-menu" aria-label="{{t "Open menu"}}">
-      <span class="icon-menu" aria-hidden="true"></span>
-    </button>
-    {{#if @site.logo}}
-      <a href="{{@site.url}}" class="m-logo in-mobile-topbar">
-        <img src="{{@site.logo}}" alt="{{@site.title}}" class="{{#if @custom.dark_mode_logo}}m-logo__image-light{{/if}}">
-        {{#if @custom.dark_mode_logo}}
-          <img src="{{@custom.dark_mode_logo}}" alt="{{@site.title}}" class="m-logo__image-dark">
-        {{/if}}
-      </a>
-    {{else}}
-      <a href="{{@site.url}}" class="m-site-name in-mobile-topbar">
-        {{@site.title}}
-      </a>
-    {{/if}}
-    <button class="m-icon-button in-mobile-topbar {{^if @custom.enable_native_search}}js-open-search{{/if}}" {{#if @custom.enable_native_search}}data-ghost-search{{/if}} aria-label="{{t "Open search"}}">
-      <span class="icon-search" aria-hidden="true"></span>
-    </button>
-  </div>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+  /* Style for the hamburger menu button */
+  .menu {
+    cursor: pointer;
+    position: fixed;
+    top: 15px; /* Position the button at the top */
+    left: 5%; /* Position the button to the left */
+    z-index: 3; /* Ensure it stays above other elements */
+    opacity: 1;
+    z-index: 1000;
+    font-family: 'Poppins', sans-serif; /* Applying the new font */
+  }
 
-  <div class="m-menu js-menu">
-    <button class="m-icon-button outlined as-close-menu js-close-menu" aria-label="{{t "Close menu"}}">
-      <span class="icon-close"></span>
-    </button>
-    <div class="m-menu__main" data-animate="fade-down">
-      <div class="l-wrapper">
-        <div class="m-nav js-main-nav">
-          <nav class="m-nav__left js-main-nav-left" role="navigation" aria-label="{{t "Main menu"}}">
-            <ul>
-              {{#if @site.logo}}
-                <li class="only-desktop">
-                  <a href="{{@site.url}}" class="m-logo">
-                    <img src="{{@site.logo}}" alt="{{@site.title}}" class="{{#if @custom.dark_mode_logo}}m-logo__image-light{{/if}}">
-                    {{#if @custom.dark_mode_logo}}
-                      <img src="{{@custom.dark_mode_logo}}" alt="{{@site.title}}" class="m-logo__image-dark">
-                    {{/if}}
-                  </a>
-                </li>
-                {{else}}
-                <li class="only-desktop">
-                  <a href="{{@site.url}}" class="m-site-name in-desktop-menu">
-                    {{@site.title}}
-                  </a>
-                </li>
-              {{/if}}
-              {{#if @site.navigation}}
-                {{navigation}}
-              {{/if}}
-              {{#if @site.secondary_navigation}}
-                <li class="more">
-                  <span>
-                    <a href="javascript:void(0);" class="js-open-secondary-menu">
-                      {{t "More"}}
-                      <span class="icon-chevron-down" aria-hidden="true"></span>
-                    </a>
-                  </span>
-                </li>
-              {{/if}}
-            </ul>
-          </nav>
-          <div class="m-nav__right">
-            <div class="m-footer-social" style="margin-bottom: 0;">
-            {{#if @site.facebook}}
-              <a href="https://www.facebook.com/engineering.summer.university" target="_blank" rel="noopener" aria-label="Facebook">
-                <span class="icon-facebook" aria-hidden="true"></span>
-              </a>
-            {{/if}}
-            <a href="https://www.instagram.com/engineering.summer.university/" target="_blank">
-              <span class="icon-instagram" aria-hidden="true"></span>
-            </a>
-            </div>
-            <div class="signUp" style="padding-left:1rem" >
-              <button onclick="location.href='/liste'" style="background-color: white; color: black; margin-bottom:5%; border:none; font-size: 14px; box-shadow:none; border-radius:8px; padding: 8px; cursor: pointer;" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                Liste Finale
-              </button>
-              </a>
-            </div>
-            {{!-- 
-            TO DO: Enable search
-            <button class="m-icon-button in-menu-main {{^if @custom.enable_native_search}}js-open-search{{/if}}" {{#if @custom.enable_native_search}}data-ghost-search{{/if}} aria-label="{{t "Open search"}}">
-              <span class="icon-search" aria-hidden="true"></span>
-            </button> --}}
-            {{!-- <div class="m-toggle-darkmode js-tooltip" data-tippy-content="{{t "Toggle dark mode"}}" tabindex="0">
-              <label for="toggle-darkmode" class="sr-only">
-                {{t "Toggle dark mode"}}
-              </label>
-              <input id="toggle-darkmode" type="checkbox" class="js-toggle-darkmode">
-              <div>
-                <span class="icon-moon moon" aria-hidden="true"></span>
-                <span class="icon-sunny sun" aria-hidden="true"></span>
-              </div>
-            </div> --}}
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  /* Smooth transition for hover effect */
+.bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #ffffff;
+    margin: 6px 0;
+    opacity: 1;
+    transition: transform 0.4s, background-color 0.6s ease-in-out; /* Smooth color transition */
+}
+
+/* Change bars to white on hover */
+.menu:hover .bar1,
+.menu:hover .bar2,
+.menu:hover .bar3 {
+    background-color: #fac82d; /* Change to white */
+}
+
+  /* Animation when the hamburger icon changes to "X" */
+  .change .bar1 {
+    transform: translate(0, 11px) rotate(-45deg);
+  }
+
+  .change .bar2 {
+    opacity: 0; /* Hide the middle bar */
+  }
+
+  .change .bar3 {
+    transform: translate(0, -11px) rotate(45deg);
+  }
+
+.sidenav {
+    height: 100vh; /* Full height of the screen */
+    width: 0; /* Initially hidden */
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #06265e;
+    overflow: hidden;
+    transition: 0.8s ease;
+    padding-top: 0; /* Remove extra padding */
+    
+    z-index: 500;
+   font-family: 'Poppins', sans-serif; /* Applying the new font */
+    /* Center content vertically and horizontally */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+/* Keyframes for sliding in from the left */
+@keyframes slideIn {
+    from {
+        transform: translateX(-300px); /* Start off-screen */
+        opacity: 0; /* Invisible */
+    }
+    to {
+        transform: translateX(0); /* Move to position */
+        opacity: 1; /* Fully visible */
+    }
+}
+
+/* Keyframes for sliding out to the left */
+@keyframes slideOut {
+    from {
+        transform: translateX(0); /* Start in position */
+        opacity: 1; /* Fully visible */
+    }
+    to {
+        transform: translateX(-300px); /* Move off-screen */
+        opacity: 0; /* Invisible */
+    }
+}
+
+/* Default state - links are fully visible but positioned off-screen */
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    padding-left: 20%;
+    text-decoration: none;
+    font-size: 30px;
+    color: #fac82d;
+    display: block;
+    transition: color 0.4s ease-in-out;
+    transform: translateX(-300px); /* Start off-screen */
+    opacity: 1; /* Keep visible until animation changes */
+}
+
+/* Animate links in when sidebar opens */
+.sidenav.show-links a {
+    animation: slideIn 0.7s ease-out forwards;
+}
+
+/* Animate links out when sidebar closes */
+.sidenav.hide-links a {
+    animation: slideOut 0.5s ease-in forwards;
+}
+
+  /* Hover effect for the links */
+  .sidenav a:hover {
+    color: #ffffff;
+  }
+
+  /* When the sidebar is open */
+  .sidenav.open {
+    width: 22%; /* Width of the open sidebar */
+  }
+
+  /* Make the links visible when the sidebar is fully open */
+  .sidenav.show-links a {
+    opacity: 1; /* Show the links */
+  }
+
+  /* Style for InfoTech button */
+  .buton-infotech {
+    height: auto;
+    width: 90%;
+  }
+
+  @media (max-width: 768px) {
+  .sidenav {     /* Full screen height */
+    padding-top: 0;
+    align-items: center;            /* Center horizontally */
+    text-align: center;             /* Center text */
+  }
+
+  .sidenav a {
+    font-size: 6vw;                /* Responsive font size */
+    padding: 2vh 0;
+    padding-left: 0;
+    transform: translateX(0);       /* Prevent off-screen initial state */
+    opacity: 0;
+  }
+
+  .sidenav.open {
+    width: 100vw;
+  }
+
+  
+}
+
+@media (min-width: 768px) and (max-width: 1050px) {
+  .sidenav.open {
+    width: 35vw !important;
+  }
+  .nav-links li:not(:last-child) {
+    display: none;
+  }
+}
+
+  @media only screen and (max-width: 769px) {
+    .buton-infotech img {
+      height: auto;
+      width: 90%;
+      margin-bottom: 2%;
+      margin-left: 1vh;
+    }
+  }
+
+  @media only screen and (min-width: 768px) {
+    .buton-infotech img {
+      height: auto;
+      width: 90%;
+      margin-bottom: 2%;
+      margin-left: 1vh;
+    }
+  }
+
+  /* Style for Osut button */
+  .buton-osut {
+    position: absolute;
+    bottom: 150px; /* Position 20px from the bottom */
+    width: 100%;
+    height: 54px;
+  }
+
+  .buton-osut img {
+    height: 80px;
+    width: 180px;
+  }
+
+/* Default transparent navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent; /* Initially transparent */
+    height: 70px;
+    color: #071E46;
+    z-index: 500;
+    transition: background 0.4s ease-in-out; /* Smooth transition */
+    font-family: 'Poppins', sans-serif; /* Applying the new font */
+}
+
+/* When scrolling down, make navbar white */
+.navbar.scrolled {
+    background: #071E46; /* Solid white background */
+    color: black; /* Adjust text color for visibility */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add shadow */
+}
+
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Navigation Links - Right aligned */
+        .nav-links {
+            list-style: none;
+            display: flex;
+            margin-left: auto; /* Pushes links to the right */
+            gap: 20px; /* Spaces out the links */
+            font-size: 22px;
+            text-decoration: none;
+            padding: 0;
+            margin-right: 5%;
+}
+
+.nav-links a {
+    color: #ffffff; /* Ensures the links are white */
+    text-decoration: none; /* Removes underline */
+    transition: color 0.6s ease-in-out; /* Smooth color transition */
+}
+
+.nav-links a:hover {
+    color: #fac82d;
+}
+
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background: #333;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                text-align: center;
+                padding: 10px 0;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+        }
+.custom-faq-link-button-header {
+  background: #ffffff;
+  color: #073B7F;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  padding: 6px 16px;
+  font-size: 1rem;
+  border-radius: 30px;
+  transition:
+    background 0.4s ease,
+    color 0.4s ease,
+    transform 0.2s ease,
+    box-shadow 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  height: 30px;
+  line-height: 1;
+  text-decoration: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.custom-faq-link-button-header {
+  background: #ffffff;
+  color: #073B7F !important;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  padding: 6px 16px;
+  font-size: 1rem;
+  border-radius: 30px;
+  transition:
+    background 0.6s ease,
+    color 0.4s ease,
+    transform 0.2s ease,
+    box-shadow 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  height: 30px;
+  line-height: 1;
+  text-decoration: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.custom-faq-link-button-header:hover {
+  background-color: #fac82d;
+  color: #073B7F !important;
+  transform: translateY(-1px);
+}
+
+</style>
+<nav class="navbar">
+        <div class="logo"><a href="https://esu.osut.org/"><img src="/assets/images/Logo-uri/ESU_logo_header.png" style="width: 176px; height: 60px"></a></div>
+        <ul class="nav-links">
+    <li><a href="https://www.facebook.com/engineering.summer.university"><i class="fab fa-facebook-f"></i></a></li>
+    <li><a href="https://www.instagram.com/engineering.summer.university/"><i class="fab fa-instagram"></i></a></li>
+    <li><a href="https://www.tiktok.com/@esu.osut"><i class="fab fa-tiktok"></i></a></li>
+    <li><a href="https://docs.google.com/forms/d/1wkNLOQzfr3UOxnzEu-BquwEqHGr-WrKWSkozMKz_lQo" class="custom-faq-link-button-header">Înscriere</a></li>
+    
+</ul>
+
+    </nav>
+<!-- Hamburger Button -->
+<div class="menu" onclick="toggleNav(this)">
+  <div class="bar1"></div>
+  <div class="bar2"></div>
+  <div class="bar3"></div>
+</div>
+
+<!-- Vertical Sidebar -->
+
+<div id="mySidenav" class="sidenav">
+  
+  <a href="https://esu.osut.org/"><b>Acasă</b></a>
+  <a href="https://esu.osut.org/about/"><b>Despre noi</b></a>
+  <a href="https://esu.osut.org/echipa/"><b>Echipa</b></a>
+  <!--<a href="https://esu.osut.org/facultati"><b>Facultăți</b></a>-->
+  <a href="https://esu.osut.org/esu2025/"><b>ESU 2025</b></a>
+  <a href="https://esu.osut.org/faq-esu/"><b>FAQ</b></a>
+  <a href="https://osutcluj.pixieset.com/engineeringsummeruniversity2024/"><b>Galerie</b></a>
+
+    
+  </a>
+</div>
+
+<script>
+  // Function to toggle both the button animation and the sidebar
+function toggleNav(x) {
+    x.classList.toggle("change"); // Toggle the hamburger button animation
+    var nav = document.getElementById("mySidenav");
+
+    if (nav.classList.contains("open")) {
+        // Start exit animation first
+        nav.classList.remove("show-links");
+        nav.classList.add("hide-links");
+
+        // Wait for last item's exit animation to finish before closing sidebar
+        setTimeout(function() {
+            nav.classList.remove("open", "hide-links"); // Close sidebar
+        },250); // Delay should match last item's exit animation (0.7s + buffer)
+    } else {
+        // Open sidebar first, then start entry animation
+        nav.classList.add("open");
+
+        setTimeout(function() {
+            nav.classList.add("show-links");
+        }, 200); // Start animation after sidebar opens
+    }
+}
+
+window.addEventListener("scroll", function () {
+    var navbar = document.querySelector(".navbar");
+    if (window.scrollY > 50) { // When scrolled down 50px
+        navbar.classList.add("scrolled");
+    } else {
+        navbar.classList.remove("scrolled");
+    }
+});
+
+
+  // Reset sidebar and menu button to initial state when leaving the page
+  window.addEventListener("beforeunload", function() {
+    var nav = document.getElementById("mySidenav");
+    nav.classList.remove("open", "show-links"); // Close the sidebar
+    var menuButton = document.querySelector(".menu");
+    menuButton.classList.remove("change"); // Reset the hamburger button
+  });
+</script>
 
   {{#if @site.secondary_navigation}}
     <div id="secondary-navigation-template" style="display: none;">
