@@ -1,319 +1,599 @@
-{{!-- This block preloads specific assets for the post page --}}
+{{!-- This block preloads specific assets for the index page --}}
 {{#contentFor "preload"}}
-  <link rel="preload" href="{{asset "css/post.css"}}" as="style" />
-  <link rel="preload" href="{{asset "js/page.js"}}" as="script" />
+  <link rel="preload" href="{{asset "css/home.css"}}" as="style" />
+  <link rel="preload" href="{{asset "css/listing.css"}}" as="style" />
+  <link rel="preload" href="{{asset "js/home.js"}}" as="script" />
+  <link rel="stylesheet" type="text/css" href="{{asset "css/bootstrapClasses.css"}}" media="screen" />
 {{/contentFor}}
 
-{{!-- This block loads specific styles for the post page --}}
+{{!-- This block loads specific styles for the index page --}}
 {{#contentFor "styles"}}
-  <link rel="stylesheet" type="text/css" href="{{asset "css/post.css"}}" media="screen" />
-  <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
+  <link rel="stylesheet" type="text/css" href="{{asset "css/home.css"}}" media="screen" />
+  <link rel="stylesheet" type="text/css" href="{{asset "css/listing.css"}}" media="screen" />
 {{/contentFor}}
 
 {{!-- The tag below means: insert everything in this file
 into the {body} of the default.hbs template --}}
-{{!< default}}
+{{!--{{!< default}}--}}
 
 {{!-- Special header.hbs partial to generate the <header> tag --}}
-{{#post}}
-  {{> header background=feature_image}}
-{{/post}}
-<main class="main-wrap">
-  {{!-- Everything inside the #post tags pulls data from the post --}}
-  {{#post}}
-    {{!-- Inject styles of the hero image to make it responsive --}}
-    {{> hero background=feature_image}}
-    <div class="m-hero__content" data-aos="fade-down">
-      <h1 class="m-hero-title bigger" style="padding-bottom: 1rem;">Despre ESU</h1>
-      <a href="{{@site.url}}/liste
-      " class="m-button filled">Liste Finale</a>
-      
-      {{#if custom_excerpt}}
-        <p class="m-hero-description">{{custom_excerpt}}</p>
-      {{/if}}
-    </div>
-    </section>
-    <article>
-      <div class="l-content">
-        <div class="l-wrapper in-post" data-aos="fade-up" data-aos-delay="300">
-          <div class="l-post-content">
-            <div class="pos-relative js-post-content">
-              <h3>ESU 2023</h3>
-              <p class="lead">
-                Engineering Summer University este o tabără de vară de două săptămâni destinată elevilor de clasa a XI-a care doresc să descopere fascinantul domeniu al ingineriei și să experimenteze viața de student universitar într-un mediu dinamic și prietenos. 
-              </p>
-              <h3>Ce facem la ESU?</h3>
-              <p class="lead">
-                Cu un program interactiv și intens, participanții vor fi implicați în activități distractive și educative, care vor cuprinde cursuri teoretice, dar și o varietate de laboratoare care le vor permite să aplice cunoștințele învățate. Cursurile de inginerie sunt susținute de profesori de top din cadrul Universității Tehnice din Cluj-Napoca și sunt structurate într-un mod interactiv și practic.
-              </p>
-              <h3>Oportunitate și distracție</h3>              
-              <p class="lead">
-                Pe lângă cursuri, ESU oferă și o gamă largă de activități distractive, care vor îmbunătăți abilitățile sociale și vor încuraja participanții să se integreze în comunitatea de elevi din tabără. Cazarea în căminele din Observator le va oferi participanților șansa de a se bucura de o experiență autentică de campus.
-              </p>
-              <br />
-              <p class="lead">
-                Dacă nu ai încă un plan pentru perioada 15-29 iulie, vino să petreci două săptămâni de neuitat cu oameni pasionați și participanți din întreaga țară în cadrul Engineering Summer University.
-              </p>
-              <h3>Fii actorul verii tale!</h3>
-            </div>
-          </div>
-        </div>
-      </div>
-    </article>
-  {{/post}}
+{{> header background=@site.cover_image }}
 
-<section id="tranding">      
-      <div class="container">
-        <div class="swiper tranding-slider">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide tranding-slide">
-              <div class="tranding-slide-img">
-                <img src="/content/images/carousel/1.jpg" >
-              </div>
-            </div>
-            <div class="swiper-slide tranding-slide">
-              <div class="tranding-slide-img">
-                <img src="/content/images/carousel/2.jpg">
-              </div>
-            </div>
-            <div class="swiper-slide tranding-slide">
-              <div class="tranding-slide-img">
-                <img src="/content/images/carousel/3.jpg">
-              </div>
-            </div>
-            <div class="swiper-slide tranding-slide">
-              <div class="tranding-slide-img">
-                <img src="/content/images/carousel/4.jpg">
-              </div>
-            </div>
-            <div class="swiper-slide tranding-slide">
-              <div class="tranding-slide-img">
-                <img src="/content/images/carousel/5.jpg">
-              </div>
-            </div>
-            <div class="swiper-slide tranding-slide">
-              <div class="tranding-slide-img">
-                <img src="/content/images/carousel/6.jpg">
-              </div>
-            </div>
-            <div class="swiper-slide tranding-slide">
-              <div class="tranding-slide-img">
-                <img src="/content/images/carousel/7.jpg">
-              </div>
-            </div>
-            <div class="swiper-slide tranding-slide">
-              <div class="tranding-slide-img">
-                <img src="/content/images/carousel/8.jpg">
-              </div>
-            </div>
-            <div class="swiper-slide tranding-slide">
-              <div class="tranding-slide-img">
-                <img src="/content/images/carousel/9.jpg">
-              </div>
-            </div>
-            <div class="swiper-slide tranding-slide">
-              <div class="tranding-slide-img">
-                <img src="/content/images/carousel/10.jpg">
-              </div>
-            </div>
-          </div>
-          <div class="tranding-slider-control" style="display: none;">
-            <div class="swiper-button-prev slider-arrow">
-              <ion-icon name="arrow-back-outline"></ion-icon>
-            </div>
-            <div class="swiper-button-next slider-arrow">
-              <ion-icon name="arrow-forward-outline"></ion-icon>
-            </div>
-            <div class="swiper-pagination"></div>
-          </div>
-        </div>
-      </div>
-    </section>
-</main>
-
-<!-- Slider style -->
 <style>
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  list-style-type: none;
-  text-decoration: none;
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+  .textCounters{
+    font-weight: 600;
+    font-size: 1.5rem;
+    color:#fac82d;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  @media screen and (max-width: 768px) {
+    .textCounters{
+      font-size: 0.8rem;
+    }
+  }
+
+  /* Ensure no margin or padding on body and html */
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
-.container {
-  max-width: 124rem;
-  padding: 0 1rem;
+
+
+
+/* Move the intro image to the top */
+.intro-img {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    position: relative;
+    top: 0;
+}
+
+/* Ensure the image takes full width and is not pushed down */
+.intro-img img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+}
+
+/* Ensure main content is not adding space at the top */
+.main-wrap {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif; /* Applying the new font */
+}
+
+/* Remove any possible padding in parent elements */
+.l-content {
+    margin: 0;
+    padding: 0;
+}
+ .ce-e-esu {
+  max-width: 70%;
+  margin: 60px auto;
+  text-align: justify;
+  font-family: 'Poppins', sans-serif;
+  padding: 0 20px;
+  margin-bottom: 0%;
+}
+
+.ce-e-esu-title {
+  color: #fac82d; 
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 3vh;
+  text-shadow: 1px 2px 1px rgba(0, 0, 0, 0.2); 
+}
+
+.ce-e-esu-motto {
+  color: #fac82d; 
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-shadow: 1px 2px 1px rgba(0, 0, 0, 0.2); 
+}
+
+
+.ce-e-esu-description {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #073B7F; /* If on dark background; change to #000 or #333 for light bg */
+  margin-bottom: 20px;
+  padding-bottom: 8vh;
+  
+}
+
+    .imgStyle{
+      max-width: 70%; 
+    }
+  @media only screen and (max-width: 768px) {
+    .toBeDeletedMobile{
+      display: none;
+    }
+
+    .col-md-8{
+      width: 100%;
+    }
+
+    .imgStyle{
+      max-width: 100%;
+    }
+  }
+
+/* Default: auto height to fit image */
+.slideshow-container {
+  position: relative;
+  max-width: 70vw;
+  height: auto;
+  margin: 5vh auto 8vh auto;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  transition: height 0.4s ease-in-out;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 100%;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out, left 0.8s ease-in-out;
+}
+
+.slide img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
   margin: 0 auto;
 }
-.text-center {
-  text-align: center;
-}
-.section-heading {
-  font-size: 3rem;
-  color: var(--primary);
-  padding: 2rem 0;
-}
-@media (max-width:1440px) {
-  #tranding {
-    padding: 7rem 0;
-  }
-}
-#tranding .tranding-slider {
-  height: 52rem;
-  padding: 2rem 0;
-  position: relative;
-}
-@media (max-width:500px) {
-  #tranding .tranding-slider {
-    height: 45rem;
-  }
-}
-.tranding-slide {
-  width: 37rem;
-  height: 42rem;
-  position: relative;
-}
-@media (max-width:500px) {
-  .tranding-slide {
-    width: 28rem !important;
-    height: 36rem !important;
-  }
-  .tranding-slide .tranding-slide-img img {
-    width: 28rem !important;
-    height: 36rem !important;
-  }
-}
-.tranding-slide .tranding-slide-img img {
-  width: 37rem;
-  height: 42rem;
-  border-radius: 2rem;
-  object-fit: cover;
-}
-.tranding-slide .tranding-slide-content {
-  position: absolute;
+
+
+
+.slide.active {
   left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-}
-.tranding-slide-content .food-price {
-  position: absolute;
-  top: 2rem;
-  right: 2rem;
-  color: var(--white);
-}
-.tranding-slide-content .tranding-slide-content-bottom {
-  position: absolute;
-  bottom: 2rem;
-  left: 2rem;
-  color: var(--white);
-}
-.food-rating {
-  padding-top: 1rem;
-  display: flex;
-  gap: 1rem;
-}
-.rating ion-icon {
-  color: var(--primary);
-}
-.swiper-slide-shadow-left,
-.swiper-slide-shadow-right {
-  display: none;
-}
-.tranding-slider-control {
+  opacity: 1;
+  z-index: 2;
   position: relative;
-  bottom: 4rem;
+}
+
+/* Default (Desktop - over 1800px) */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  font-size: 28px;
+  font-weight: bold;
+  color: white;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 50%;
+  user-select: none;
+  z-index: 3;
+  text-align: center;
+  transition: color 0.4s ease-in-out, background 0.4s ease-in-out;
+}
+
+.prev:hover, .next:hover {
+  background: #073E7F;
+  color: #fac82d;
+}
+
+.prev {
+  left: 20px;
+}
+
+.next {
+  right: 20px;
+}
+
+/* Between 1501px and 1800px */
+@media (max-width: 1800px) {
+  .prev, .next {
+    width: 52px;
+    height: 52px;
+    line-height: 52px;
+    font-size: 24px;
+  }
+}
+
+/* Between 951px and 1500px */
+@media (max-width: 1500px) {
+  .prev, .next {
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    font-size: 20px;
+  }
+}
+
+/* Between 768px and 950px */
+@media (max-width: 950px) {
+  .prev, .next {
+    width: 38px;
+    height: 38px;
+    line-height: 38px;
+    font-size: 18px;
+  }
+}
+
+/* Under 768px */
+@media (max-width: 768px) {
+  .prev, .next {
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    font-size: 16px;
+  }
+}
+
+
+.dots-container {
+  position: absolute;
+  bottom: 15px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 4;
+}
+
+.dot {
+  display: inline-block;
+  width: 30px;
+  height: 4px;
+  margin: 5px 4px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background-color 0.4s ease;
+}
+
+.dot.active {
+  background-color: #FAC82D;
+}
+
+.video-background {
+  position: relative;
+  max-width: 100%;
+  background-color: #073B7F;
+  height: auto;
+  padding-bottom: 10vh;
+  padding-top: 6vh;
+}
+
+.ce-e-esu-description2 {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #ffffff;
+}
+
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* Maintains 16:9 aspect ratio */
+  padding-top: 4vh;
+  height: 0;
+  overflow: hidden;
+  margin: 0 auto 8vh auto;
+  max-width: 80vw;
+  border-radius: 15px;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+
+.col-md-8{flex:0 0 auto;width:66.66666667%}
+.col-md-4{flex:0 0 auto;width:33.33333333%}
+
+@media only screen and (max-width: 600px) {
+  .row, .col-md-8, .col-md-4,{
+    width: 100%;
+    display: flex;
+    margin: auto;
+  }
+}
+
+.faq-hero {
+  position: relative;
+  background-image: url('/assets/images/Banner Page/DespreNoi.jpg');
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 90vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
+  z-index: 1;
+  overflow: hidden;
 }
-.tranding-slider-control .swiper-button-next {
-  left: 58% !important;
-  transform: translateX(-58%) !important;
+
+.faq-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); /* Adjust opacity here */
+  z-index: -1;
 }
-@media (max-width:990px) {
-  .tranding-slider-control .swiper-button-next {
-    left: 70% !important;
-    transform: translateX(-70%) !important;
+
+.faq-hero h1 {
+  color: #ffffff;
+  font-size: 6rem;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+  margin: 0;
+  line-height: 1.4; /* Slightly increased line spacing */
+}
+
+.faq-hero h1 .line1 {
+  margin-bottom: 0.5em;
+}
+.faq-hero h1 .line2 {
+  margin-top: 0;
+}
+
+/* 1501px - 1800px */
+@media (max-width: 1800px) {
+  .faq-hero h1 {
+    font-size: 5.2rem;
+    line-height: 1.3;
+  }
+
+  .faq-hero h1 .line1 {
+    margin-bottom: 0.45em;
   }
 }
-@media (max-width:450px) {
-  .tranding-slider-control .swiper-button-next {
-    left: 80% !important;
-    transform: translateX(-80%) !important;
+
+/* 951px - 1500px */
+@media (max-width: 1500px) {
+  .faq-hero h1 {
+    font-size: 4.4rem;
+    line-height: 1.3;
+  }
+
+  .faq-hero h1 .line1 {
+    margin-bottom: 0.4em;
   }
 }
-@media (max-width:990px) {
-  .tranding-slider-control .swiper-button-prev {
-    left: 30% !important;
-    transform: translateX(-30%) !important;
+
+/* 768px - 950px */
+@media (max-width: 950px) {
+  .faq-hero h1 {
+    font-size: 3.8rem;
+    line-height: 1.25;
+  }
+
+  .faq-hero h1 .line1 {
+    margin-bottom: 0.35em;
   }
 }
-@media (max-width:450px) {
-  .tranding-slider-control .swiper-button-prev {
-    left: 20% !important;
-    transform: translateX(-20%) !important;
+
+/* Below 768px */
+@media (max-width: 768px) {
+  .faq-hero h1 {
+    font-size: 2.6rem;
+    line-height: 1.2;
+    padding: 0 10px;
+  }
+
+  .faq-hero h1 .line1 {
+    margin-bottom: 0.3em;
   }
 }
-.tranding-slider-control .slider-arrow {
-  width: 3.5rem;
-  height: 3.5rem;
-  border-radius: 50%;
-  left: 42%;
-  transform: translateX(-42%);
-  filter: drop-shadow(0px 8px 24px rgba(18, 28, 53, 0.1));
+
+.responsive-highlight {
+  color: #FAC82D;
+  text-shadow: 1px 2px 1px rgba(0, 0, 0, 0.2);
+  font-weight: 700;
+  font-size: 1.8rem;
+  font-family: 'Poppins', sans-serif;
 }
-.tranding-slider-control .slider-arrow ion-icon {
-  font-size: 2rem;
-  color: #222224;
+
+@media (max-width: 767px) {
+  .ce-e-esu-title,
+  .ce-e-esu-motto {
+    font-size: 1.6rem;
+  }
+
+  .ce-e-esu-description,
+  .ce-e-esu-description2 {
+    font-size: 0.9rem;
+  }
+
+  .responsive-highlight {
+    font-size: 1.2rem;
+  }
 }
-.tranding-slider-control .slider-arrow::after {
-  content: '';
+
+@media (min-width: 768px) and (max-width: 950px) {
+  .ce-e-esu-title,
+  .ce-e-esu-motto {
+    font-size: 1.8rem;
+  }
+
+  .ce-e-esu-description,
+  .ce-e-esu-description2 {
+    font-size: 1rem;
+  }
+
+  .responsive-highlight {
+    font-size: 1.4rem;
+  }
 }
-.tranding-slider-control .swiper-pagination {
-  position: relative;
-  width: 15rem;
-  bottom: -0.3rem;
+
+@media (min-width: 951px) and (max-width: 1500px) {
+  .ce-e-esu-title,
+  .ce-e-esu-motto {
+    font-size: 2.1rem;
+  }
+
+  .ce-e-esu-description,
+  .ce-e-esu-description2 {
+    font-size: 1.05rem;
+  }
+
+  .responsive-highlight {
+    font-size: 1.6rem;
+  }
 }
-.tranding-slider-control .swiper-pagination .swiper-pagination-bullet {
-  filter: drop-shadow(0px 8px 24px rgba(18, 28, 53, 0.1));
+
+@media (min-width: 1501px) and (max-width: 1800px) {
+  .ce-e-esu-title,
+  .ce-e-esu-motto {
+    font-size: 2.3rem;
+  }
+
+.ce-e-esu-description,
+  .ce-e-esu-description2 {
+    font-size: 1.08rem;
+  }
+
+  .responsive-highlight {
+    font-size: 1.7rem;
+  }
 }
-.tranding-slider-control .swiper-pagination .swiper-pagination-bullet-active {
-  background: black;
-}
+
 </style>
+
+<main class="main-wrap" style="background-color: #ffffff; margin: 0;padding: 0;">
+  <div class="l-content">
+  <section class="faq-hero">
+  <h1>
+    <span class="line1">DESPRE NOI</span><br />
+  </h1>
+</section>
+   
+<section class="ce-e-esu">
+  <p class="ce-e-esu-description">
+   <b class="responsive-highlight">Engineering Summer University</b> este o tabără de 2 săptămâni dedicată elevilor de clasa a 11-a. Organizat de OSUT Cluj și aflat la a 11-a ediție, scopul proiectului este acela de a oferi participanților experiența cât mai veritabilă de student.
+<br><br>Pregătește-te pentru un program captivant, unde vei învăța prin experiență! Vei participa la cursuri interesante și laboratoare hands-on, susținute de profesori de top de la Universitatea Tehnică din Cluj-Napoca. Fiecare activitate te va provoca să gândești creativ și tehnic, oferindu-ți oportunitatea de a pune în practică ceea ce înveți într-un mod inovator și, de ce nu, distractiv.
+
+  </p>
+</section>
+<div class="video-background">
+<section class="ce-e-esu">
+  <p class="ce-e-esu-description2">
+  Dar ESU nu înseamnă doar învățat! Pe lângă experiențele educaționale, te așteaptă activități de echipă, provocări captivante și seri tematice, toate menite să îți dezvolte abilitățile sociale și să creeze prietenii care pot dura o viață. Cazarea în căminele campusului îți va oferi o experiență autentică de viață de student.
+<br><br>Nu ai planuri pentru vară? ESU este locul ideal unde poți învăța, te poți distra și poți construi fundamentul unui viitor de succes! Vino să explorezi ingineria într-un mod inedit și să creezi amintiri de neuitat alături de o echipă de tineri pasionați!
+<h2 class="ce-e-esu-motto">Dive into the journey of a lifetime!</h2>
+</p>
+
+</section>
+</div>
+
+<section class="ce-e-esu">
+  <h2 class="ce-e-esu-title">Uite ce au zis foștii participanți despre ESU</h2>
+
+</section>
+
+<div class="slideshow-container">
+  <div class="slide fade active">
+    <img src="/assets/images/Testimoniale/testimoniale-01.png">
+  </div>
+  <div class="slide fade">
+    <img src="/assets/images/Testimoniale/testimoniale-02.png">
+  </div>
+  
+
+
+  <a class="prev" onclick="plusSlides(-1)">❮</a>
+  <a class="next" onclick="plusSlides(1)">❯</a>
+
+ 
+  <div class="dots-container">
+    <span class="dot" onclick="currentSlide(0)"></span>
+    <span class="dot" onclick="currentSlide(1)"></span>
+    
+  </div>
+</section>
+
+ 
+
+</div>
+
+
+
+</main>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    function counter(id, start, end, duration) {
+      let obj = document.getElementById(id),
+        current = start,
+        range = end - start,
+        increment = end > start ? 1 : -1,
+        step = Math.abs(Math.floor(duration / range)),
+        timer = setInterval(() => {
+          current += increment;
+          obj.textContent = current;
+          if (current == end) {
+            clearInterval(timer);
+          }
+        }, step);
+    }
+
+    counter("count1", 1700, 2200, 4000);
+    counter("count2", 200, 700, 4000);
+    counter("count3", 0, 14, 8000);
+  });
+
+  let slideIndex = 0;
+  const slides = document.querySelectorAll(".slide");
+  const dots = document.querySelectorAll(".dot");
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.remove("active");
+      slide.style.left = (i < index) ? '-100%' : '100%';
+    });
+    slides[index].classList.add("active");
+    slides[index].style.left = '0';
+
+    dots.forEach(dot => dot.classList.remove("active"));
+    if (dots[index]) dots[index].classList.add("active");
+  }
+
+  function plusSlides(n) {
+    slideIndex += n;
+    if (slideIndex >= slides.length) slideIndex = 0;
+    if (slideIndex < 0) slideIndex = slides.length - 1;
+    showSlide(slideIndex);
+  }
+
+  function currentSlide(n) {
+    slideIndex = n;
+    showSlide(slideIndex);
+  }
+
+  // Initialize
+  showSlide(slideIndex);
+</script>
+
 
 {{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
 {{#contentFor "scripts"}}
-  <script defer src="{{asset "js/page.js"}}"></script>
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script  src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
-    <script>
-      var TrandingSlider = new Swiper('.tranding-slider', {
-        effect: 'coverflow',
-        grabCursor: true,
-        centeredSlides: true,
-        loop: true,
-        slidesPerView: 'auto',
-        coverflowEffect: {
-          rotate: 0,
-          stretch: 0,
-          depth: 100,
-          modifier: 2.5,
-        },
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true,
-        },
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        }
-      });
-    </script>
+  <script defer src="{{asset "js/home.js"}}"></script>
 {{/contentFor}}

@@ -1,0 +1,430 @@
+{{!-- This block preloads specific assets for the index page --}}
+{{#contentFor "preload"}}
+  <link rel="preload" href="{{asset "css/home.css"}}" as="style" />
+  <link rel="preload" href="{{asset "css/listing.css"}}" as="style" />
+  <link rel="preload" href="{{asset "js/home.js"}}" as="script" />
+  <link rel="stylesheet" type="text/css" href="{{asset "css/bootstrapClasses.css"}}" media="screen" />
+{{/contentFor}}
+
+{{!-- This block loads specific styles for the index page --}}
+{{#contentFor "styles"}}
+  <link rel="stylesheet" type="text/css" href="{{asset "css/home.css"}}" media="screen" />
+  <link rel="stylesheet" type="text/css" href="{{asset "css/listing.css"}}" media="screen" />
+{{/contentFor}}
+
+{{!-- The tag below means: insert everything in this file
+into the {body} of the default.hbs template --}}
+{{!--{{!< default}}--}}
+
+{{!-- Special header.hbs partial to generate the <header> tag --}}
+{{> header background=@site.cover_image }}
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+  .textCounters{
+    font-weight: 600;
+    font-size: 1.5rem;
+  }
+
+  @media screen and (max-width: 768px) {
+    .textCounters{
+      font-size: 0.8rem;
+    }
+  }
+
+ 
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; 
+}
+
+
+.intro-img {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    position: relative;
+    top: 0;
+}
+
+
+.intro-img img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+}
+
+
+.main-wrap {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif; /* Applying the new font */
+}
+
+
+.l-content {
+    margin: 0;
+    padding: 0;
+}
+
+.faq-section {
+    background: #ffffff;
+    padding: 50px 10%;
+}
+
+.faq-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background: #073B7F;
+    border-radius: 15px;
+    margin-bottom: 25px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+    transition: transform 0.2s ease-in-out; /* increase size of item (both question and answer) */
+}
+
+.faq-item:hover {
+    transform: scale(1.02); /* bigger item */
+}
+
+.faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    color: rgb(255, 255, 255);
+    font-size: 1.4rem;
+    padding: 20px;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+    transition: background 0.3s; /* for color change */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 3%;
+    padding-left: 3%;
+}
+
+.faq-arrow {
+    transition: transform 0.4s ease-in-out; /* arrow spin */
+}
+
+.faq-item.active .faq-arrow {
+    transform: rotate(180deg); /* arrow 180deg spin */
+}
+
+/* Ensure the arrow rotates properly when active */
+.rotate {
+    transform: rotate(180deg);
+    transition: transform 0.3s ease-in-out;
+}
+
+.faq-question:hover {
+    background: #fac82d;
+    color: #073B7F;
+    transition: all 0.3s ease-in-out; /* color change when hover */
+}
+
+/* FAQ Answer - Smoother expand/collapse */
+.faq-answer {
+    background: #1366d3;
+    color: rgb(255, 255, 255);
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1), padding 0.4s ease-in-out; /* expand the answer */
+}
+
+/* Open state - smooth transition */
+.faq-item.active .faq-answer {
+    max-height: 300px; /* Increased max height for better visibility */
+    padding: 20px;
+}
+
+.faq-answer a {
+  color: #ffffff; /* default white color */
+  text-decoration: underline;
+  transition: color 0.3s ease-in-out;
+}
+
+.faq-answer a:hover {
+  color: #fac82d; /* yellow on hover */
+}
+
+.faq-hero {
+  position: relative;
+  background-image: url('/assets/images/Banner Page/FAQ.jpg');
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* Add dark overlay */
+.faq-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); /* Adjust opacity here */
+  z-index: -1;
+}
+
+.faq-hero h1 {
+  color: #ffffff;
+  font-size: 6rem;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+  margin: 0;
+  line-height: 1.4; /* Slightly increased line spacing */
+}
+
+.faq-hero h1 .line1 {
+  margin-bottom: 0.5em;
+}
+.faq-hero h1 .line2 {
+  margin-top: 0;
+}
+
+/* 1501px - 1800px */
+@media (max-width: 1800px) {
+  .faq-hero h1 {
+    font-size: 5.2rem;
+    line-height: 1.3;
+  }
+
+  .faq-hero h1 .line1 {
+    margin-bottom: 0.45em;
+  }
+}
+
+/* 951px - 1500px */
+@media (max-width: 1500px) {
+  .faq-hero h1 {
+    font-size: 4.4rem;
+    line-height: 1.3;
+  }
+
+  .faq-hero h1 .line1 {
+    margin-bottom: 0.4em;
+  }
+}
+
+/* 768px - 950px */
+@media (max-width: 950px) {
+  .faq-hero h1 {
+    font-size: 3.8rem;
+    line-height: 1.25;
+  }
+
+  .faq-hero h1 .line1 {
+    margin-bottom: 0.35em;
+  }
+}
+
+/* Below 768px */
+@media (max-width: 768px) {
+  .faq-hero h1 {
+    font-size: 2.6rem;
+    line-height: 1.2;
+    padding: 0 10px;
+  }
+
+  .faq-hero h1 .line1 {
+    margin-bottom: 0.3em;
+  }
+}
+
+
+</style>
+
+<main class="main-wrap" style="background-color: #ffffff; margin: 0;padding: 0;">
+
+<section class="faq-hero">
+  <h1>
+    <span class="line1">FREQUENTLY ASKED</span><br />
+    <span class="line2">QUESTIONS</span>
+  </h1>
+</section>
+ 
+
+    <section class="faq-section">
+        <div class="faq-container">
+            
+            <div class="faq-item">
+    <button class="faq-question">
+        <b>Unde? Când? Cine?</b>
+        <i class="fas fa-chevron-down faq-arrow"></i>
+    </button>
+    <div class="faq-answer">
+        <p>Cluj-Napoca, perioada 19 iulie - 2 august 2025 și o mulțime de oameni faini.</p>
+    </div>
+</div>
+
+<div class="faq-item">
+    <button class="faq-question">
+        <b>Cât este prețul taberei?</b>
+        <i class="fas fa-chevron-down faq-arrow"></i>
+    </button>
+    <div class="faq-answer">
+        <p>Taxa de participare este în valoare de 650 de lei.</p>
+    </div>
+</div>
+
+
+            <div class="faq-item">
+                <button class="faq-question">
+                  <b>Trebuie să am o anumită vârstă?</b>
+                <i class="fas fa-chevron-down faq-arrow"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Tabăra este destinată elevilor de clasa a XI-a.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                  <b>Unde o să fim cazați?</b>
+                  <i class="fas fa-chevron-down faq-arrow"></i>
+                  </button>
+                <div class="faq-answer">
+                    <p>Cazarea se va face într-unul dintre căminele din Campusul Studențesc Observator, iar în cameră vor sta câte 4 persoane alese aleatoriu.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+    <button class="faq-question">
+        <b>De ce acte am nevoie pentru a mă înscrie?</b>
+        <i class="fas fa-chevron-down faq-arrow"></i>
+    </button>
+    <div class="faq-answer">
+        <p>Tot procesul necesar înscrierii îl găsești <a href="https://esu.osut.org/esu2025/"><u>aici</u></a>.</p>
+    </div>
+</div>
+
+<div class="faq-item">
+    <button class="faq-question">
+        <b>Cum se va face repartizarea în camere? Pot sta cu cine vreau în cameră?</b>
+        <i class="fas fa-chevron-down faq-arrow"></i>
+    </button>
+    <div class="faq-answer">
+        <p>Repartizarea în camere se va realiza aleatoriu, în funcție de gen.</p>
+    </div>
+</div>
+
+<div class="faq-item">
+    <button class="faq-question">
+        <b>Contează pe ce profil sunt?</b>
+        <i class="fas fa-chevron-down faq-arrow"></i>
+    </button>
+    <div class="faq-answer">
+        <p>Nu, experiența ESU este aceeași pentru toate ramurile.</p>
+    </div>
+</div>
+
+<div class="faq-item">
+    <button class="faq-question">
+        <b>După ce criterii se va face selecția pe facultăți?</b>
+        <i class="fas fa-chevron-down faq-arrow"></i>
+    </button>
+    <div class="faq-answer">
+        <p>Criterile de selecție pentru admiterea în tabără sunt: alegerea făcută în formularul de înscriere, diplome/certificate ce atestă interesul în ramura respectivă alegerii și argumentarea din formular privind motivul alegerii ramurii.</p>
+    </div>
+</div>
+
+<div class="faq-item">
+    <button class="faq-question">
+        <b>Cum aflăm dacă am fost acceptați în tabără?</b>
+        <i class="fas fa-chevron-down faq-arrow"></i>
+    </button>
+    <div class="faq-answer">
+        <p>Răspunsul o să fie postat atât pe site prin intermediul listelor preliminare/finale, cât și prin intermediul unui apel telefonic. </p>
+    </div>
+</div>
+
+<div class="faq-item">
+    <button class="faq-question">
+        <b>Unde se face înscrierea?</b>
+        <i class="fas fa-chevron-down faq-arrow"></i>
+    </button>
+    <div class="faq-answer">
+        <p>Înscrierea se face prin formularul de înscriere, pe care îl găsești <a href="https://docs.google.com/forms/d/1wkNLOQzfr3UOxnzEu-BquwEqHGr-WrKWSkozMKz_lQo"><u>aici</u></a>.</p>
+    </div>
+</div>
+
+<div class="faq-item">
+    <button class="faq-question">
+        <b>Pot pleca mai repede din tabără dacă am și alte chestii planificate dinainte?</b>
+        <i class="fas fa-chevron-down faq-arrow"></i>
+    </button>
+    <div class="faq-answer">
+        <p>Da, doar în prezența unui părinte/tutore legal, pentru maxim 24 de ore.</p>
+    </div>
+</div>
+
+
+        </div>
+    </section>
+</main>
+
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+  function counter(id, start, end, duration) {
+    let obj = document.getElementById(id),
+    current = start,
+    range = end - start,
+    increment = end > start ? 1 : -1,
+    step = Math.abs(Math.floor(duration / range)),
+    timer = setInterval(() => {
+      current += increment;
+      obj.textContent = current;
+      if (current == end) {
+      clearInterval(timer);
+      }
+    }, step);
+  }
+  counter("count1", 1674, 1800, 5000);
+  counter("count2", 573, 700, 5000);
+  counter("count3", 0, 14, 3000);
+  });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const questions = document.querySelectorAll(".faq-question");
+
+    questions.forEach((question) => {
+        question.addEventListener("click", function () {
+            const parent = this.parentElement;
+            const arrow = this.querySelector(".faq-arrow");
+
+            // Toggle the active class on the clicked FAQ item
+            parent.classList.toggle("active");
+            arrow.classList.toggle("rotate"); // Rotate the arrow
+        });
+    });
+});
+
+
+</script>
+
+{{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
+{{#contentFor "scripts"}}
+  <script defer src="{{asset "js/home.js"}}"></script>
+{{/contentFor}}
